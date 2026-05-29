@@ -414,10 +414,7 @@ function setupMobileMenu() {
     
     function closeAllSidebars() {
         if (leftSidebar) leftSidebar.classList.remove('open');
-        if (filtersSidebar) {
-            filtersSidebar.classList.remove('open');
-            filtersSidebar.classList.add('hidden');
-        }
+        if (filtersSidebar) filtersSidebar.classList.remove('open');
     }
     
     if (menuToggle) {
@@ -425,7 +422,6 @@ function setupMobileMenu() {
             e.stopPropagation();
             if (filtersSidebar && filtersSidebar.classList.contains('open')) {
                 filtersSidebar.classList.remove('open');
-                filtersSidebar.classList.add('hidden');
             }
             leftSidebar.classList.toggle('open');
         });
@@ -438,7 +434,6 @@ function setupMobileMenu() {
                 leftSidebar.classList.remove('open');
             }
             filtersSidebar.classList.toggle('open');
-            filtersSidebar.classList.remove('hidden');
         });
     }
     
@@ -451,11 +446,6 @@ function setupMobileMenu() {
     if (closeFilters) {
         closeFilters.addEventListener('click', () => {
             filtersSidebar.classList.remove('open');
-            setTimeout(() => {
-                if (!filtersSidebar.classList.contains('open')) {
-                    filtersSidebar.classList.add('hidden');
-                }
-            }, 300);
         });
     }
     
@@ -469,11 +459,6 @@ function setupMobileMenu() {
             if (filtersSidebar && filtersSidebar.classList.contains('open')) {
                 if (!filtersSidebar.contains(e.target) && !filtersToggle.contains(e.target)) {
                     filtersSidebar.classList.remove('open');
-                    setTimeout(() => {
-                        if (!filtersSidebar.classList.contains('open')) {
-                            filtersSidebar.classList.add('hidden');
-                        }
-                    }, 300);
                 }
             }
         }
@@ -505,7 +490,6 @@ function setupNavigation() {
             const filtersSidebar = document.getElementById('filtersSidebar');
             
             if (section === 'sources') {
-                filtersSidebar.classList.remove('hidden');
                 if (window.innerWidth <= 768) {
                     filtersSidebar.classList.remove('open');
                 }
@@ -515,9 +499,8 @@ function setupNavigation() {
                     state.isChangingSection = false;
                 }, 100);
             } else {
-                if (filtersSidebar) {
+                if (window.innerWidth <= 768 && filtersSidebar) {
                     filtersSidebar.classList.remove('open');
-                    filtersSidebar.classList.add('hidden');
                 }
                 setTimeout(() => {
                     state.isChangingSection = false;
