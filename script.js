@@ -337,7 +337,132 @@ const TRANSLATIONS = {
     }
 };
 
+const PROS_CONS_TRANSLATIONS = {
+    pt: {},
+    en: {
+        "Uso moderado da CPU durante instalação": "Moderate CPU usage during installation",
+        "Repacks com compressão moderada": "Repacks with moderate compression",
+        "Suporte a vários idiomas dos jogos": "Support for multiple game languages",
+        "Falhas na instalação por arquivos corrompidos": "Installation failures due to corrupted files",
+        "Catálogo menor em comparação ao da FitGirl": "Smaller catalog compared to FitGirl",
+        "Design do launcher desastroso": "Disastrous launcher design",
+        "Alta utilização da CPU durante instalação": "High CPU usage during installation",
+        "Instalação pode ser lenta": "Installation can be slow",
+        "Releases em <b>[Game folder]</b>, sem instalador": "Releases as <b>[Game folder]</b>, no installer",
+        "Repacks com compressão baixa/moderada": "Repacks with low/moderate compression",
+        "Catálogo extenso de jogos": "Extensive game catalog",
+        "Jogos dublados as vezes só com legendas PT-BR": "Dubbed games sometimes only with PT-BR subtitles",
+        "Configuração do idioma pode ser complicada": "Language configuration can be complicated",
+        "Foco no idioma Russo e Inglês": "Focus on Russian and English language",
+        "Jogos incluídos pela Comunidade": "Games included by the Community",
+        "Curadoria manual (sem web scraping)": "Manual curation (no web scraping)",
+        "Fontes verificadas e seguras para usar": "Verified and safe sources to use",
+        "Alguns jogos com pouquíssimos seeders": "Some games with very few seeders",
+        "Atualizações menos frequentes": "Less frequent updates",
+        "Depende de fontes externas": "Depends on external sources",
+        "<b>THE Repacker</b>: referência entre os repackers": "<b>THE Repacker</b>: reference among repackers",
+        "Verifica integridade dos arquivos instalados": "Checks integrity of installed files",
+        "Compressão dos arquivos alta": "High file compression",
+        "Jogos sem DRM, arquivos limpos": "DRM-free games, clean files",
+        "Conteúdo bônus preservado": "Bonus content preserved",
+        "Instalação simples": "Simple installation",
+        "Catálogo limitado a jogos da GOG": "Catalog limited to GOG games",
+        "Pode-se jogar em servidores oficiais": "Can play on official servers",
+        "Atualizações são frequentes": "Updates are frequent",
+        "Suporte a multiplayer online": "Online multiplayer support",
+        "Alguns jogos perdem suporte permanentemente": "Some games lose support permanently",
+        "Necessário Steam ou da Epic Games aberto": "Requires Steam or Epic Games open",
+        "Foco do idioma em Russo": "Focus on Russian language",
+        "Releaser conhecido do CS.RIN.RU e do RuTracker": "Known releaser from CS.RIN.RU and RuTracker",
+        "Catálogo pequeno de jogos": "Small game catalog",
+        "Velocidade de download pode ser lenta": "Download speed may be slow"
+    },
+    es: {
+        "Uso moderado da CPU durante instalação": "Uso moderado de CPU durante la instalación",
+        "Repacks com compressão moderada": "Repacks con compresión moderada",
+        "Suporte a vários idiomas dos jogos": "Soporte para varios idiomas de juegos",
+        "Falhas na instalação por arquivos corrompidos": "Fallos en la instalación por archivos corruptos",
+        "Catálogo menor em comparação ao da FitGirl": "Catálogo más pequeño comparado con FitGirl",
+        "Design do launcher desastroso": "Diseño del launcher desastroso",
+        "Alta utilização da CPU durante instalação": "Alto uso de CPU durante la instalación",
+        "Instalação pode ser lenta": "La instalación puede ser lenta",
+        "Releases em <b>[Game folder]</b>, sem instalador": "Lanzamientos como <b>[Game folder]</b>, sin instalador",
+        "Repacks com compressão baixa/moderada": "Repacks con compresión baja/moderada",
+        "Catálogo extenso de jogos": "Catálogo extenso de juegos",
+        "Jogos dublados as vezes só com legendas PT-BR": "Juegos doblados a veces solo con subtítulos PT-BR",
+        "Configuração do idioma pode ser complicada": "La configuración del idioma puede ser complicada",
+        "Foco no idioma Russo e Inglês": "Enfoque en idioma ruso e inglés",
+        "Jogos incluídos pela Comunidade": "Juegos incluidos por la Comunidad",
+        "Curadoria manual (sem web scraping)": "Curaduría manual (sin web scraping)",
+        "Fontes verificadas e seguras para usar": "Fuentes verificadas y seguras para usar",
+        "Alguns jogos com pouquíssimos seeders": "Algunos juegos con muy pocos seeders",
+        "Atualizações menos frequentes": "Actualizaciones menos frecuentes",
+        "Depende de fontes externas": "Depende de fuentes externas",
+        "<b>THE Repacker</b>: referência entre os repackers": "<b>THE Repacker</b>: referencia entre los repackers",
+        "Verifica integridade dos arquivos instalados": "Verifica integridad de los archivos instalados",
+        "Compressão dos arquivos alta": "Alta compresión de archivos",
+        "Jogos sem DRM, arquivos limpos": "Juegos sin DRM, archivos limpios",
+        "Conteúdo bônus preservado": "Contenido bonus preservado",
+        "Instalação simples": "Instalación simple",
+        "Catálogo limitado a jogos da GOG": "Catálogo limitado a juegos de GOG",
+        "Pode-se jogar em servidores oficiais": "Se puede jugar en servidores oficiales",
+        "Atualizações são frequentes": "Las actualizaciones son frecuentes",
+        "Suporte a multiplayer online": "Soporte multijugador online",
+        "Alguns jogos perdem suporte permanentemente": "Algunos juegos pierden soporte permanentemente",
+        "Necessário Steam ou da Epic Games aberto": "Requiere Steam o Epic Games abierto",
+        "Foco do idioma em Russo": "Enfoque en idioma ruso",
+        "Releaser conhecido do CS.RIN.RU e do RuTracker": "Releaser conocido de CS.RIN.RU y RuTracker",
+        "Catálogo pequeno de jogos": "Catálogo pequeño de juegos",
+        "Velocidade de download pode ser lenta": "La velocidad de descarga puede ser lenta"
+    },
+    ru: {
+        "Uso moderado da CPU durante instalação": "Умеренное использование ЦП во время установки",
+        "Repacks com compressão moderada": "Repacks с умеренным сжатием",
+        "Suporte a vários idiomas dos jogos": "Поддержка нескольких языков игр",
+        "Falhas na instalação por arquivos corrompidos": "Сбои установки из-за поврежденных файлов",
+        "Catálogo menor em comparação ao da FitGirl": "Меньший каталог по сравнению с FitGirl",
+        "Design do launcher desastroso": "Ужасный дизайн лаунчера",
+        "Alta utilização da CPU durante instalação": "Высокое использование ЦП во время установки",
+        "Instalação pode ser lenta": "Установка может быть медленной",
+        "Releases em <b>[Game folder]</b>, sem instalador": "Релизы как <b>[Game folder]</b>, без установщика",
+        "Repacks com compressão baixa/moderada": "Repacks с низким/умеренным сжатием",
+        "Catálogo extenso de jogos": "Обширный каталог игр",
+        "Jogos dublados as vezes só com legendas PT-BR": "Дублированные игры иногда только с субтитрами PT-BR",
+        "Configuração do idioma pode ser complicada": "Настройка языка может быть сложной",
+        "Foco no idioma Russo e Inglês": "Фокус на русском и английском языках",
+        "Jogos incluídos pela Comunidade": "Игры, добавленные сообществом",
+        "Curadoria manual (sem web scraping)": "Ручная курация (без веб-скрапинга)",
+        "Fontes verificadas e seguras para usar": "Проверенные и безопасные источники",
+        "Alguns jogos com pouquíssimos seeders": "Некоторые игры с очень малым количеством сидеров",
+        "Atualizações menos frequentes": "Менее частые обновления",
+        "Depende de fontes externas": "Зависит от внешних источников",
+        "<b>THE Repacker</b>: referência entre os repackers": "<b>THE Repacker</b>: эталон среди репакеров",
+        "Verifica integridade dos arquivos instalados": "Проверяет целостность установленных файлов",
+        "Compressão dos arquivos alta": "Высокое сжатие файлов",
+        "Jogos sem DRM, arquivos limpos": "Игры без DRM, чистые файлы",
+        "Conteúdo bônus preservado": "Бонусный контент сохранен",
+        "Instalação simples": "Простая установка",
+        "Catálogo limitado a jogos da GOG": "Каталог ограничен играми GOG",
+        "Pode-se jogar em servidores oficiais": "Можно играть на официальных серверах",
+        "Atualizações são frequentes": "Обновления частые",
+        "Suporte a multiplayer online": "Поддержка онлайн мультиплеера",
+        "Alguns jogos perdem suporte permanentemente": "Некоторые игры теряют поддержку навсегда",
+        "Necessário Steam ou da Epic Games aberto": "Требуется открытый Steam или Epic Games",
+        "Foco do idioma em Russo": "Фокус на русском языке",
+        "Releaser conhecido do CS.RIN.RU e do RuTracker": "Известный релизер с CS.RIN.RU и RuTracker",
+        "Catálogo pequeno de jogos": "Маленький каталог игр",
+        "Velocidade de download pode ser lenta": "Скорость загрузки может быть низкой"
+    }
+};
+
 let currentLanguage = 'pt';
+
+function translateProsCons(text) {
+    if (currentLanguage === 'pt') return text;
+    const translations = PROS_CONS_TRANSLATIONS[currentLanguage];
+    if (!translations) return text;
+    return translations[text] || text;
+}
 
 function applyTranslations(lang) {
     const translations = TRANSLATIONS[lang];
@@ -1081,6 +1206,9 @@ function renderSources() {
     grid.innerHTML = state.filteredSources.map(source => {
         const isEcologica = source.id === 'ecologica';
         
+        const translatedPros = source.pros.map(pro => translateProsCons(pro));
+        const translatedCons = source.cons.map(con => translateProsCons(con));
+        
         return `
         <article class="source-card" data-id="${source.id}">
             <div class="card-header">
@@ -1114,7 +1242,7 @@ function renderSources() {
                             <span>${translations?.pros || 'Prós'}</span>
                         </div>
                         <ul class="pros-list">
-                            ${source.pros.map(pro => `<li>${pro}</li>`).join('')}
+                            ${translatedPros.map(pro => `<li>${pro}</li>`).join('')}
                         </ul>
                     </div>
                     <div class="cons-section">
@@ -1123,7 +1251,7 @@ function renderSources() {
                             <span>${translations?.cons || 'Contras'}</span>
                         </div>
                         <ul class="cons-list">
-                            ${source.cons.map(con => `<li>${con}</li>`).join('')}
+                            ${translatedCons.map(con => `<li>${con}</li>`).join('')}
                         </ul>
                     </div>
                 </div>
@@ -1288,9 +1416,6 @@ function handleAccessSource(sourceId) {
         `Abrindo catálogo ${source.name}...`,
         'info'
     );
-    
-    console.log(`Acessando: ${source.name}`);
-    console.log(`Arquivo CSV: ${source.filename}.csv`);
 }
 
 function showError(message, section) {
@@ -1599,7 +1724,7 @@ function setupGameSearch() {
                 <span>${translations?.found_in || 'Encontrado em'} ${catalogsWithMatches.length} ${translations?.catalog || 'catálogo(s)'}</span>
             </div>
             <div class="catalogs-list">
-                ${catalogsWithMatches.map(({ catalog, matches }, index) => `
+                ${catalogsWithMatches.map(({ catalog, matches }) => `
                     <div class="catalog-result" data-catalog-id="${catalog.id}">
                         <div class="catalog-result-header" data-catalog-id="${catalog.id}">
                             <i class="fas ${catalog.icon}"></i>
