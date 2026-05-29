@@ -13,7 +13,9 @@ const TRANSLATIONS = {
         search_btn: "Procurar Jogo nos Catálogos",
         loading: "Carregando catálogos...",
         guides_title: "Guias Disponíveis",
+        guides_stats: "guias disponíveis",
         utilities_title: "Utilitários Disponíveis",
+        utilities_stats: "utilitários disponíveis",
         dmca_title: "DMCA & Direitos Autorais",
         dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Direitos Autorais",
         dmca_declaration_title: "Declaração Legal",
@@ -71,10 +73,15 @@ const TRANSLATIONS = {
         csv_columns_label: "Colunas do CSV",
         access_guide: "Acessar Guia",
         access_utility: "Acessar Utilitário",
+        access_catalog: "Acessar Catálogo",
         searching: "Buscando em",
         catalogs: "catálogos",
         no_games_message: "Não encontramos",
-        in_catalogs: "em nenhum catálogo"
+        in_catalogs: "em nenhum catálogo",
+        catalog_analysis: "Análise do Catálogo",
+        pros: "Prós",
+        cons: "Contras",
+        games_count: "Jogos"
     },
     en: {
         tagline: "Public Links Indexer",
@@ -90,7 +97,9 @@ const TRANSLATIONS = {
         search_btn: "Search Game in Catalogs",
         loading: "Loading catalogs...",
         guides_title: "Available Guides",
+        guides_stats: "guides available",
         utilities_title: "Available Utilities",
+        utilities_stats: "utilities available",
         dmca_title: "DMCA & Copyright",
         dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Copyright",
         dmca_declaration_title: "Legal Statement",
@@ -148,10 +157,15 @@ const TRANSLATIONS = {
         csv_columns_label: "CSV Columns",
         access_guide: "Access Guide",
         access_utility: "Access Utility",
+        access_catalog: "Access Catalog",
         searching: "Searching in",
         catalogs: "catalogs",
         no_games_message: "We couldn't find",
-        in_catalogs: "in any catalog"
+        in_catalogs: "in any catalog",
+        catalog_analysis: "Catalog Analysis",
+        pros: "Pros",
+        cons: "Cons",
+        games_count: "Games"
     },
     es: {
         tagline: "Indexador de Enlaces Públicos",
@@ -167,7 +181,9 @@ const TRANSLATIONS = {
         search_btn: "Buscar Juego en Catálogos",
         loading: "Cargando catálogos...",
         guides_title: "Guías Disponibles",
+        guides_stats: "guías disponibles",
         utilities_title: "Utilidades Disponibles",
+        utilities_stats: "utilidades disponibles",
         dmca_title: "DMCA & Derechos de Autor",
         dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Derechos de Autor",
         dmca_declaration_title: "Declaración Legal",
@@ -225,10 +241,15 @@ const TRANSLATIONS = {
         csv_columns_label: "Columnas CSV",
         access_guide: "Acceder Guía",
         access_utility: "Acceder Utilidad",
+        access_catalog: "Acceder Catálogo",
         searching: "Buscando en",
         catalogs: "catálogos",
         no_games_message: "No encontramos",
-        in_catalogs: "en ningún catálogo"
+        in_catalogs: "en ningún catálogo",
+        catalog_analysis: "Análisis del Catálogo",
+        pros: "Pros",
+        cons: "Contras",
+        games_count: "Juegos"
     },
     ru: {
         tagline: "Индексатор публичных ссылок",
@@ -244,7 +265,9 @@ const TRANSLATIONS = {
         search_btn: "Поиск игры в каталогах",
         loading: "Загрузка каталогов...",
         guides_title: "Доступные гайды",
+        guides_stats: "доступных гайдов",
         utilities_title: "Доступные утилиты",
+        utilities_stats: "доступных утилит",
         dmca_title: "DMCA & Авторские права",
         dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Авторские права",
         dmca_declaration_title: "Правовое заявление",
@@ -302,10 +325,15 @@ const TRANSLATIONS = {
         csv_columns_label: "Колонки CSV",
         access_guide: "Открыть гайд",
         access_utility: "Открыть утилиту",
+        access_catalog: "Открыть каталог",
         searching: "Поиск в",
         catalogs: "каталогах",
         no_games_message: "Не нашли",
-        in_catalogs: "ни в одном каталоге"
+        in_catalogs: "ни в одном каталоге",
+        catalog_analysis: "Анализ каталога",
+        pros: "Плюсы",
+        cons: "Минусы",
+        games_count: "Игры"
     }
 };
 
@@ -342,13 +370,34 @@ function applyTranslations(lang) {
     localStorage.setItem('siteLanguage', lang);
     
     refreshCatalogStats();
+    refreshGuidesStats();
+    refreshUtilitiesStats();
+    renderSources();
+    loadGuides();
+    loadUtilities();
 }
 
 function refreshCatalogStats() {
     const catalogStats = document.getElementById('catalogStats');
     if (catalogStats && state && state.totalGames) {
         const translations = TRANSLATIONS[currentLanguage];
-        catalogStats.textContent = `${state.sources.length} ${translations?.catalogs_count || 'catálogos indexados'} | ${translations?.total_games || 'Total de Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
+        catalogStats.textContent = `${state.sources.length} catálogos indexados | ${translations?.games_count || 'Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
+    }
+}
+
+function refreshGuidesStats() {
+    const guidesStats = document.getElementById('guidesStats');
+    if (guidesStats) {
+        const translations = TRANSLATIONS[currentLanguage];
+        guidesStats.textContent = `${CONFIG.guides.length} ${translations?.guides_stats || 'guias disponíveis'}`;
+    }
+}
+
+function refreshUtilitiesStats() {
+    const utilitiesStats = document.getElementById('utilitiesStats');
+    if (utilitiesStats) {
+        const translations = TRANSLATIONS[currentLanguage];
+        utilitiesStats.textContent = `${CONFIG.utilities.length} ${translations?.utilities_stats || 'utilitários disponíveis'}`;
     }
 }
 
@@ -598,7 +647,8 @@ let state = {
     filtersInitialized: false,
     isChangingSection: false,
     gameCounts: {},
-    totalGames: 0};
+    totalGames: 0
+};
 
 document.addEventListener('DOMContentLoaded', async () => {
     await initializeApp();
@@ -636,7 +686,7 @@ async function initializeApp() {
         const catalogStats = document.getElementById('catalogStats');
         if (catalogStats) {
             const translations = TRANSLATIONS[currentLanguage];
-            catalogStats.textContent = `${sourcesData.sources.length} catálogos indexados | Total de Jogos: ${state.totalGames.toLocaleString('pt-BR')}`;
+            catalogStats.textContent = `${sourcesData.sources.length} catálogos indexados | ${translations?.games_count || 'Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
         }
         
         state.sources = sourcesData.sources.map(source => ({
@@ -1026,6 +1076,8 @@ function renderSources() {
         return;
     }
     
+    const translations = TRANSLATIONS[currentLanguage];
+    
     grid.innerHTML = state.filteredSources.map(source => {
         const isEcologica = source.id === 'ecologica';
         
@@ -1040,7 +1092,7 @@ function renderSources() {
                     <div class="card-subtitle">
                         <div class="donate-safety-links">
                             ${isEcologica ? 
-                                `<span>${TRANSLATIONS[currentLanguage]?.nonprofit || 'Projeto sem fins lucrativo'}</span>` : 
+                                `<span>${translations?.nonprofit || 'Projeto sem fins lucrativo'}</span>` : 
                                 source.shortName
                             }
                             <span class="divider">|</span>
@@ -1053,13 +1105,13 @@ function renderSources() {
             <div class="card-pros-cons">
                 <div class="pros-cons-header">
                     <i class="fas fa-chart-line"></i>
-                    <h4>Análise do Catálogo</h4>
+                    <h4>${translations?.catalog_analysis || 'Análise do Catálogo'}</h4>
                 </div>
                 <div class="pros-cons-grid">
                     <div class="pros-section">
                         <div class="pros-title">
                             <i class="fas fa-check-circle"></i>
-                            <span>Prós</span>
+                            <span>${translations?.pros || 'Prós'}</span>
                         </div>
                         <ul class="pros-list">
                             ${source.pros.map(pro => `<li>${pro}</li>`).join('')}
@@ -1068,7 +1120,7 @@ function renderSources() {
                     <div class="cons-section">
                         <div class="cons-title">
                             <i class="fas fa-times-circle"></i>
-                            <span>Contras</span>
+                            <span>${translations?.cons || 'Contras'}</span>
                         </div>
                         <ul class="cons-list">
                             ${source.cons.map(con => `<li>${con}</li>`).join('')}
@@ -1086,7 +1138,7 @@ function renderSources() {
                 </div>
                 <div class="games-count">
                     <i class="fas fa-gamepad"></i>
-                    <span>${source.gameCount.toLocaleString('pt-BR')} Jogos</span>
+                    <span>${source.gameCount.toLocaleString('pt-BR')} ${translations?.games_count || 'Jogos'}</span>
                 </div>
                 <div class="stars">
                     ${getStarsHTML(source.stars)}
@@ -1096,7 +1148,7 @@ function renderSources() {
             <div class="card-actions">
                 <a href="${source.url}" class="btn btn-primary" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
-                    Acessar Catálogo
+                    ${translations?.access_catalog || 'Acessar Catálogo'}
                 </a>
             </div>
         </article>
@@ -1121,8 +1173,9 @@ function loadGuides() {
     const grid = document.getElementById('guidesGrid');
     if (!grid) return;
     
+    const translations = TRANSLATIONS[currentLanguage];
+    
     if (CONFIG.guides.length === 0) {
-        const translations = TRANSLATIONS[currentLanguage];
         grid.innerHTML = `
             <div class="no-results">
                 <i class="fas fa-book"></i>
@@ -1149,7 +1202,7 @@ function loadGuides() {
             <div class="card-actions">
                 <a href="${guide.url}" class="btn btn-primary btn-guide" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
-                    ${TRANSLATIONS[currentLanguage]?.access_guide || 'Acessar Guia'}
+                    ${translations?.access_guide || 'Acessar Guia'}
                 </a>
             </div>
         </article>
@@ -1162,8 +1215,9 @@ function loadUtilities() {
     const grid = document.getElementById('utilitiesGrid');
     if (!grid) return;
     
+    const translations = TRANSLATIONS[currentLanguage];
+    
     if (CONFIG.utilities.length === 0) {
-        const translations = TRANSLATIONS[currentLanguage];
         grid.innerHTML = `
             <div class="no-results">
                 <i class="fas fa-tools"></i>
@@ -1198,7 +1252,7 @@ function loadUtilities() {
             <div class="card-actions">
                 <a href="${utility.url}" class="btn btn-primary btn-utility" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
-                    ${TRANSLATIONS[currentLanguage]?.access_utility || 'Acessar Utilitário'}
+                    ${translations?.access_utility || 'Acessar Utilitário'}
                 </a>
             </div>
         </article>
