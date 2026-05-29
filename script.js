@@ -506,22 +506,20 @@ function setupNavigation() {
             
             if (section === 'sources') {
                 filtersSidebar.classList.remove('hidden');
-                filtersSidebar.style.opacity = '1';
-                filtersSidebar.style.transform = 'translateX(0)';
+                if (window.innerWidth <= 768) {
+                    filtersSidebar.classList.remove('open');
+                }
                 
                 setTimeout(() => {
                     setupFilterListeners();
                     state.isChangingSection = false;
                 }, 100);
             } else {
-                if (window.innerWidth <= 768) {
+                if (filtersSidebar) {
                     filtersSidebar.classList.remove('open');
-                }
-                filtersSidebar.style.opacity = '0';
-                filtersSidebar.style.transform = 'translateX(100%)';
-                
-                setTimeout(() => {
                     filtersSidebar.classList.add('hidden');
+                }
+                setTimeout(() => {
                     state.isChangingSection = false;
                 }, 300);
             }
