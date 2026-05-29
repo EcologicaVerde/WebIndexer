@@ -433,7 +433,9 @@ function setupMobileMenu() {
             if (leftSidebar && leftSidebar.classList.contains('open')) {
                 leftSidebar.classList.remove('open');
             }
-            filtersSidebar.classList.toggle('open');
+            if (state.currentSection === 'sources') {
+                filtersSidebar.classList.toggle('open');
+            }
         });
     }
     
@@ -490,6 +492,7 @@ function setupNavigation() {
             const filtersSidebar = document.getElementById('filtersSidebar');
             
             if (section === 'sources') {
+                filtersSidebar.classList.remove('hidden');
                 if (window.innerWidth <= 768) {
                     filtersSidebar.classList.remove('open');
                 }
@@ -499,6 +502,7 @@ function setupNavigation() {
                     state.isChangingSection = false;
                 }, 100);
             } else {
+                filtersSidebar.classList.add('hidden');
                 if (window.innerWidth <= 768 && filtersSidebar) {
                     filtersSidebar.classList.remove('open');
                 }

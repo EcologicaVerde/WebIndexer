@@ -850,9 +850,7 @@ body {
 }
 
 .filters-sidebar.hidden {
-    opacity: 0;
-    transform: translateX(100%);
-    pointer-events: none;
+    display: none;
 }
 
 .filters-title {
@@ -1690,12 +1688,10 @@ body {
     
     .filters-sidebar.open {
         transform: translateX(0);
-        opacity: 1;
-        pointer-events: auto;
     }
     
     .filters-sidebar.hidden {
-        transform: translateX(100%);
+        display: none;
     }
     
     .mobile-close-sidebar {
