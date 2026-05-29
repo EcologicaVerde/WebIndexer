@@ -82,7 +82,85 @@ const LANGUAGE_RU = {
     cons: "Минусы",
     games_count: "Игры",
     donate_link: "Ссылка для пожертвований",
-    url_safely: "Безопасный URL"
+    url_safely: "Проверка URL",
+    catalogs_indexed: "индексированных каталогов",
+    total_games: "Всего игр",
+    guides_translations: {
+        "all-guides": {
+            title: "ВСЕ ГАЙДЫ ECOLÓGICA VERDE",
+            description: "Полный доступ ко всем публичным руководствам Ecológica Verde."
+        },
+        "adobe-guide": {
+            title: "РУКОВОДСТВО: Adobe Creative Cloud",
+            description: "Полное руководство по установке и активации приложений Adobe Creative Cloud."
+        },
+        "microsoft-guide": {
+            title: "РУКОВОДСТВО: Пакет Microsoft Office и активатор Windows",
+            description: "Полное руководство по установке и активации Microsoft Office и Windows."
+        },
+        "sites-warning": {
+            title: "САЙТЫ: Внешние источники не рекомендуются",
+            description: "Список проблемных сайтов (рекламное ПО, вирусы, трояны) и нерекомендуемых источников."
+        },
+        "digimon-guide": {
+            title: "РУКОВОДСТВО: Digimon Story: Time Stranger",
+            description: "Полное руководство по установке и настройке Digimon Story: Time Stranger из Steam."
+        },
+        "elden-guide": {
+            title: "РУКОВОДСТВО: ELDEN RING NIGHTREIGN",
+            description: "Полное руководство по установке и настройке мода Seamless Co-op для ELDEN RING NIGHTREIGN."
+        },
+        "ffxv-guide": {
+            title: "РУКОВОДСТВО: FINAL FANTASY XV: Windows Edition",
+            description: "Полное руководство по установке и настройке FINAL FANTASY XV: Windows Edition."
+        },
+        "persona-guide": {
+            title: "РУКОВОДСТВО: Persona 3 Reload",
+            description: "Полное руководство по установке и настройке Persona 3 Reload из Steam."
+        },
+        "smt-guide": {
+            title: "РУКОВОДСТВО: Shin Megami Tensei V: Vengeance",
+            description: "Полное руководство по установке и настройке Shin Megami Tensei V: Vengeance из Steam."
+        }
+    },
+    utilities_translations: {
+        "fmhy": {
+            title: "FMHY: Freemediaheckyeah",
+            description: "<b>Freemediaheckyeah:</b> Самая большая коллекция бесплатных вещей в интернете!"
+        },
+        "piracy-megathread": {
+            title: "r/Piracy Мега-тред",
+            description: "<b>Самый большой поток бесплатного контента</b> на Reddit."
+        },
+        "annas-archive": {
+            title: "Anna's Archive",
+            description: "Крупнейшая по-настоящему открытая библиотека в истории человечества."
+        },
+        "adguard-vpn": {
+            title: "AdGuard VPN",
+            description: "Бесплатный VPN и прокси для безопасного просмотра."
+        },
+        "cobalt-tools": {
+            title: "Cobalt Tools",
+            description: "Инструменты для загрузки медиа с различных платформ."
+        },
+        "rentry": {
+            title: "Rentry",
+            description: "Простой и быстрый сервис pastebin для обмена текстом."
+        },
+        "spotify-pc": {
+            title: "Spotify-PC",
+            description: "Модифицированный клиент Spotify для Windows без рекламы."
+        },
+        "temp-email": {
+            title: "Временная почта",
+            description: "Сервис временной электронной почты для регистраций и проверок."
+        },
+        "ublock": {
+            title: "uBlock Origin",
+            description: "Расширение браузера для блокировки рекламы и трекеров."
+        }
+    }
 };
 
 const PROS_CONS_RU = {

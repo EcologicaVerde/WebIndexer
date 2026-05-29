@@ -58,7 +58,7 @@ function applyTranslations(lang) {
 function refreshCatalogStats() {
     const catalogStats = document.getElementById('catalogStats');
     if (catalogStats && state && state.totalGames) {
-        catalogStats.textContent = `${state.sources.length} catálogos indexados | ${currentTranslations?.games_count || 'Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
+        catalogStats.textContent = `${state.sources.length} ${currentTranslations?.catalogs_indexed || 'catálogos indexados'} | ${currentTranslations?.total_games || 'Total de Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
     }
 }
 
@@ -165,74 +165,56 @@ const CONFIG = {
             id: 'all-guides',
             emoji: '📚',
             icon: 'fa-book',
-            title: 'TODOS GUIAS DA ECOLÓGICA VERDE',
-            description: 'Acesso completo a todos os guias públicos disponíveis pela Ecológica Verde.',
             url: 'https://rentry.co/ECOLOGICA-VERDE-GUIAS'
         },
         {
             id: 'adobe-guide',
             emoji: '📙',
             icon: 'fa-paint-brush',
-            title: 'GUIA: Adobe Creative Cloud',
-            description: 'Guia completo para instalação e ativação dos aplicativos da Adobe Creative Cloud.',
             url: 'https://rentry.co/adobe-creative-cloud-ecologica-verde'
         },
         {
             id: 'microsoft-guide',
             emoji: '📗',
             icon: 'fa-desktop',
-            title: 'GUIA: Pacote Microsoft Office e Ativador do Windows',
-            description: 'Guia completo para instalação e ativação do Pacote Microsoft Office e Windows.',
             url: 'https://rentry.co/ATIVADOR-MICROSOFT-OFFICE-E-WINDOWS-ECOLOGICA-VERDE'
         },
         {
             id: 'sites-warning',
             emoji: '⛔',
             icon: 'fa-exclamation-triangle',
-            title: 'SITES: Fontes Externas não recomendadas',
-            description: 'Lista de sites problemáticos (adware, vírus, trojan) e de fontes não recomendadas.',
             url: 'https://rentry.co/sites-problematicos-ecologica-verde'
         },
         {
             id: 'digimon-guide',
             emoji: '🎮',
             icon: 'fa-gamepad',
-            title: 'GUIA: Digimon Story: Time Stranger',
-            description: 'Guia completo para instalação e configuração do Digimon Story: Time Stranger da Steam.',
             url: 'https://rentry.co/DIGIMON-STORY-TIME-STRANGER-ECOLOGICA-VERDE'
         },
         {
             id: 'elden-guide',
             emoji: '🎮',
             icon: 'fa-gamepad',
-            title: 'GUIA: ELDEN RING NIGHTREIGN',
-            description: 'Guia completo para instalação e configuração do mod (Seamless Co-op) do ELDEN RING NIGHTREIGN.',
             url: 'https://rentry.co/elden-ring-nightreign-ecologica-verde'
         },
         {
             id: 'ffxv-guide',
             emoji: '🎮',
             icon: 'fa-gamepad',
-            title: 'GUIA: FINAL FANTASY XV: Windows Edition',
-            description: 'Guia completo para instalação e configuração do FINAL FANTASY XV: Windows Edition.',
             url: 'https://rentry.co/FINAL-FANTASY-XV-ECOLOGICA-VERDE'
         },
         {
             id: 'persona-guide',
             emoji: '🎮',
             icon: 'fa-gamepad',
-            title: 'GUIA: Persona 3 Reload',
-            description: 'Guia completo para instalação e configuração do Persona 3 Reload da Steam.',
             url: 'https://rentry.co/PERSONA-3-RELOAD-ECOLOGICA-VERDE'
         },
         {
             id: 'smt-guide',
             emoji: '🎮',
             icon: 'fa-gamepad',
-            title: 'GUIA: Shin Megami Tensei V: Vengeance',
-            description: 'Guia completo para instalação e configuração do Shin Megami Tensei V: Vengeance da Steam.',
             url: 'https://rentry.co/SHIN-MEGAMI-TENSEI-V-VENGEANCE-ECOLOGICA-VERDE'
-        },
+        }
     ],
     
     utilities: [
@@ -240,72 +222,54 @@ const CONFIG = {
             id: 'fmhy',
             emoji: '➡️',
             icon: 'fa-external-link-alt',
-            title: 'FMHY: Freemediaheckyeah',
-            description: '<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!',
             url: 'https://fmhy.net/'
         },
         {
             id: 'piracy-megathread',
             emoji: '💬',
             icon: 'fa-external-link-alt',
-            title: 'r/Piracy Megathread',
-            description: '<b>Maior thread</b> de conteúdo gratuito do Reddit.',
             url: 'https://www.reddit.com/r/Piracy/wiki/megathread/'
         },
         {
             id: 'annas-archive',
             emoji: '📖',
             icon: 'fa-book',
-            title: 'Anna`s Archive',
-            description: 'A maior biblioteca verdadeiramente aberta da história da humanidade.',
             url: 'https://annas-archive.gd/'
         },
         {
             id: 'adguard-vpn',
             emoji: '⛔',
             icon: 'fa-user-shield',
-            title: 'AdGuard VPN',
-            description: 'VPN gratuita e proxy para navegação segura.',
             url: 'https://chromewebstore.google.com/detail/adguard-vpn-proxy-gratuit/hhdobjgopfphlmjbmnpglhfcgppchgje'
         },
         {
             id: 'cobalt-tools',
             emoji: '😼',
             icon: 'fa-tools',
-            title: 'Cobalt Tools',
-            description: 'Ferramentas para download de mídia de várias plataformas.',
             url: 'https://cobalt.tools/'
         },
         {
             id: 'rentry',
             emoji: '📚',
             icon: 'fa-paste',
-            title: 'Rentry',
-            description: 'Serviço de pastebin simples e rápido para compartilhamento de texto.',
             url: 'https://rentry.co/'
         },
         {
             id: 'spotify-pc',
             emoji: '🎵',
             icon: 'fa-music',
-            title: 'Spotify-PC',
-            description: 'Cliente modificado do Spotify para Windows sem anúncios.',
             url: 'https://github.com/SpotX-Official/SpotX'
         },
         {
             id: 'temp-email',
             emoji: '✉️',
             icon: 'fa-envelope',
-            title: 'E-mail Temporário',
-            description: 'Serviço de e-mail temporário para registros e verificações.',
             url: 'https://adguard.com/pt_br/adguard-temp-mail/overview.html'
         },
         {
             id: 'ublock',
             emoji: '🚫',
             icon: 'fa-shield-alt',
-            title: 'uBlock Origin',
-            description: 'Extensão de navegador para bloquear anúncios e rastreadores.',
             url: 'https://ublockorigin.com/'
         }
     ]
@@ -754,11 +718,13 @@ function renderSources() {
     grid.innerHTML = state.filteredSources.map(source => {
         const isEcologica = source.id === 'ecologica';
         
-        const donateLinkText = currentTranslations?.donate_link || 'Donate link';
-        const urlSafelyText = currentTranslations?.url_safely || 'URL Safely';
+        const donateLinkText = currentTranslations?.donate_link || 'Link de Doação';
+        const urlSafelyText = currentTranslations?.url_safely || 'Verificação da URL';
         
         let shortNameHtml = source.shortName;
         if (currentLanguage !== 'pt' && source.shortName.includes('Donate link')) {
+            shortNameHtml = source.shortName.replace('Donate link', donateLinkText);
+        } else if (currentLanguage === 'pt' && source.shortName.includes('Donate link')) {
             shortNameHtml = source.shortName.replace('Donate link', donateLinkText);
         }
         
@@ -868,29 +834,12 @@ function loadGuides() {
         return;
     }
     
+    const guidesTranslations = currentTranslations?.guides_translations || {};
+    
     const guidesList = CONFIG.guides.map(guide => {
-        let title = guide.title;
-        let description = guide.description;
-        
-        if (currentLanguage !== 'pt') {
-            if (guide.id === 'all-guides') {
-                title = currentLanguage === 'en' ? 'ALL GUIDES FROM ECOLOGICAL VERDE' : (currentLanguage === 'es' ? 'TODOS LOS GUIAS DE ECOLÓGICA VERDE' : 'ВСЕ ГАЙДЫ ECOLÓGICA VERDE');
-                description = currentLanguage === 'en' ? 'Full access to all public guides available from Ecológica Verde.' : (currentLanguage === 'es' ? 'Acceso completo a todas las guías públicas disponibles de Ecológica Verde.' : 'Полный доступ ко всем публичным руководствам Ecológica Verde.');
-            } else if (guide.id === 'adobe-guide') {
-                title = currentLanguage === 'en' ? 'GUIDE: Adobe Creative Cloud' : (currentLanguage === 'es' ? 'GUÍA: Adobe Creative Cloud' : 'РУКОВОДСТВО: Adobe Creative Cloud');
-                description = currentLanguage === 'en' ? 'Complete guide for installing and activating Adobe Creative Cloud applications.' : (currentLanguage === 'es' ? 'Guía completa para instalar y activar las aplicaciones de Adobe Creative Cloud.' : 'Полное руководство по установке и активации приложений Adobe Creative Cloud.');
-            } else if (guide.id === 'microsoft-guide') {
-                title = currentLanguage === 'en' ? 'GUIDE: Microsoft Office Package and Windows Activator' : (currentLanguage === 'es' ? 'GUÍA: Paquete Microsoft Office y Activador de Windows' : 'РУКОВОДСТВО: Пакет Microsoft Office и активатор Windows');
-                description = currentLanguage === 'en' ? 'Complete guide for installing and activating Microsoft Office and Windows.' : (currentLanguage === 'es' ? 'Guía completa para instalar y activar Microsoft Office y Windows.' : 'Полное руководство по установке и активации Microsoft Office и Windows.');
-            } else if (guide.id === 'sites-warning') {
-                title = currentLanguage === 'en' ? 'SITES: External Sources Not Recommended' : (currentLanguage === 'es' ? 'SITIOS: Fuentes Externas No Recomendadas' : 'САЙТЫ: Внешние источники не рекомендуются');
-                description = currentLanguage === 'en' ? 'List of problematic sites (adware, viruses, trojans) and not recommended sources.' : (currentLanguage === 'es' ? 'Lista de sitios problemáticos (adware, virus, troyanos) y fuentes no recomendadas.' : 'Список проблемных сайтов (рекламное ПО, вирусы, трояны) и нерекомендуемых источников.');
-            } else {
-                const gameName = guide.title.replace('GUIA: ', '').replace('GUIDE: ', '').replace('GUÍA: ', '').replace('РУКОВОДСТВО: ', '');
-                title = `${currentLanguage === 'en' ? 'GUIDE' : (currentLanguage === 'es' ? 'GUÍA' : 'РУКОВОДСТВО')}: ${gameName}`;
-                description = currentLanguage === 'en' ? `Complete guide for installing and configuring ${gameName} from Steam.` : (currentLanguage === 'es' ? `Guía completa para instalar y configurar ${gameName} de Steam.` : `Полное руководство по установке и настройке ${gameName} из Steam.`);
-            }
-        }
+        const translation = guidesTranslations[guide.id];
+        const title = translation?.title || guide.id;
+        const description = translation?.description || '';
         
         return `
         <article class="guide-card" data-id="${guide.id}">
@@ -933,42 +882,20 @@ function loadUtilities() {
         return;
     }
     
-    const sortedUtilities = CONFIG.utilities.sort((a, b) => {
+    const utilitiesTranslations = currentTranslations?.utilities_translations || {};
+    
+    const sortedUtilities = [...CONFIG.utilities].sort((a, b) => {
         if (a.id === 'fmhy') return -1;
         if (b.id === 'fmhy') return 1;
         if (a.id === 'piracy-megathread') return -1;
         if (b.id === 'piracy-megathread') return 1;
-        return a.title.localeCompare(b.title);
+        return a.id.localeCompare(b.id);
     });
     
     const utilitiesList = sortedUtilities.map(utility => {
-        let title = utility.title;
-        let description = utility.description;
-        
-        if (currentLanguage !== 'pt') {
-            if (utility.id === 'fmhy') {
-                title = 'FMHY: Freemediaheckyeah';
-                description = currentLanguage === 'en' ? '<b>Freemediaheckyeah:</b> The largest collection of free stuff on the internet!' : (currentLanguage === 'es' ? '<b>Freemediaheckyeah:</b> ¡La colección más grande de cosas gratis en internet!' : '<b>Freemediaheckyeah:</b> Самая большая коллекция бесплатных вещей в интернете!');
-            } else if (utility.id === 'piracy-megathread') {
-                title = currentLanguage === 'en' ? 'r/Piracy Megathread' : (currentLanguage === 'es' ? 'r/Piracy Megathread' : 'r/Piracy Мега-тред');
-                description = currentLanguage === 'en' ? '<b>Largest free content thread</b> on Reddit.' : (currentLanguage === 'es' ? '<b>El hilo más grande de contenido gratuito</b> en Reddit.' : '<b>Самый большой поток бесплатного контента</b> на Reddit.');
-            } else if (utility.id === 'annas-archive') {
-                title = 'Anna\'s Archive';
-                description = currentLanguage === 'en' ? 'The largest truly open library in human history.' : (currentLanguage === 'es' ? 'La biblioteca verdaderamente abierta más grande de la historia de la humanidad.' : 'Крупнейшая по-настоящему открытая библиотека в истории человечества.');
-            } else if (utility.id === 'adguard-vpn') {
-                description = currentLanguage === 'en' ? 'Free VPN and proxy for secure browsing.' : (currentLanguage === 'es' ? 'VPN gratuita y proxy para navegación segura.' : 'Бесплатный VPN и прокси для безопасного просмотра.');
-            } else if (utility.id === 'cobalt-tools') {
-                description = currentLanguage === 'en' ? 'Media download tools from multiple platforms.' : (currentLanguage === 'es' ? 'Herramientas para descargar medios de varias plataformas.' : 'Инструменты для загрузки медиа с различных платформ.');
-            } else if (utility.id === 'rentry') {
-                description = currentLanguage === 'en' ? 'Simple and fast pastebin service for text sharing.' : (currentLanguage === 'es' ? 'Servicio de pastebin simple y rápido para compartir texto.' : 'Простой и быстрый сервис pastebin для обмена текстом.');
-            } else if (utility.id === 'spotify-pc') {
-                description = currentLanguage === 'en' ? 'Modified Spotify client for Windows without ads.' : (currentLanguage === 'es' ? 'Cliente de Spotify modificado para Windows sin anuncios.' : 'Модифицированный клиент Spotify для Windows без рекламы.');
-            } else if (utility.id === 'temp-email') {
-                description = currentLanguage === 'en' ? 'Temporary email service for registrations and verifications.' : (currentLanguage === 'es' ? 'Servicio de correo electrónico temporal para registros y verificaciones.' : 'Сервис временной электронной почты для регистраций и проверок.');
-            } else if (utility.id === 'ublock') {
-                description = currentLanguage === 'en' ? 'Browser extension to block ads and trackers.' : (currentLanguage === 'es' ? 'Extensión del navegador para bloquear anuncios y rastreadores.' : 'Расширение браузера для блокировки рекламы и трекеров.');
-            }
-        }
+        const translation = utilitiesTranslations[utility.id];
+        const title = translation?.title || utility.id;
+        const description = translation?.description || '';
         
         return `
         <article class="utility-card" data-id="${utility.id}">

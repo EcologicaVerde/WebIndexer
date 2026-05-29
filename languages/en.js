@@ -82,7 +82,85 @@ const LANGUAGE_EN = {
     cons: "Cons",
     games_count: "Games",
     donate_link: "Donate link",
-    url_safely: "URL Safely"
+    url_safely: "URL Safely",
+    catalogs_indexed: "indexed catalogs",
+    total_games: "Total Games",
+    guides_translations: {
+        "all-guides": {
+            title: "ALL GUIDES FROM ECOLOGICAL VERDE",
+            description: "Full access to all public guides available from Ecológica Verde."
+        },
+        "adobe-guide": {
+            title: "GUIDE: Adobe Creative Cloud",
+            description: "Complete guide for installing and activating Adobe Creative Cloud applications."
+        },
+        "microsoft-guide": {
+            title: "GUIDE: Microsoft Office Package and Windows Activator",
+            description: "Complete guide for installing and activating Microsoft Office and Windows."
+        },
+        "sites-warning": {
+            title: "SITES: External Sources Not Recommended",
+            description: "List of problematic sites (adware, viruses, trojans) and not recommended sources."
+        },
+        "digimon-guide": {
+            title: "GUIDE: Digimon Story: Time Stranger",
+            description: "Complete guide for installing and configuring Digimon Story: Time Stranger from Steam."
+        },
+        "elden-guide": {
+            title: "GUIDE: ELDEN RING NIGHTREIGN",
+            description: "Complete guide for installing and configuring the Seamless Co-op mod for ELDEN RING NIGHTREIGN."
+        },
+        "ffxv-guide": {
+            title: "GUIDE: FINAL FANTASY XV: Windows Edition",
+            description: "Complete guide for installing and configuring FINAL FANTASY XV: Windows Edition."
+        },
+        "persona-guide": {
+            title: "GUIDE: Persona 3 Reload",
+            description: "Complete guide for installing and configuring Persona 3 Reload from Steam."
+        },
+        "smt-guide": {
+            title: "GUIDE: Shin Megami Tensei V: Vengeance",
+            description: "Complete guide for installing and configuring Shin Megami Tensei V: Vengeance from Steam."
+        }
+    },
+    utilities_translations: {
+        "fmhy": {
+            title: "FMHY: Freemediaheckyeah",
+            description: "<b>Freemediaheckyeah:</b> The largest collection of free stuff on the internet!"
+        },
+        "piracy-megathread": {
+            title: "r/Piracy Megathread",
+            description: "<b>Largest free content thread</b> on Reddit."
+        },
+        "annas-archive": {
+            title: "Anna's Archive",
+            description: "The largest truly open library in human history."
+        },
+        "adguard-vpn": {
+            title: "AdGuard VPN",
+            description: "Free VPN and proxy for secure browsing."
+        },
+        "cobalt-tools": {
+            title: "Cobalt Tools",
+            description: "Media download tools from multiple platforms."
+        },
+        "rentry": {
+            title: "Rentry",
+            description: "Simple and fast pastebin service for text sharing."
+        },
+        "spotify-pc": {
+            title: "Spotify-PC",
+            description: "Modified Spotify client for Windows without ads."
+        },
+        "temp-email": {
+            title: "Temporary Email",
+            description: "Temporary email service for registrations and verifications."
+        },
+        "ublock": {
+            title: "uBlock Origin",
+            description: "Browser extension to block ads and trackers."
+        }
+    }
 };
 
 const PROS_CONS_EN = {

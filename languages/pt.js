@@ -81,8 +81,86 @@ const LANGUAGE_PT = {
     pros: "Prós",
     cons: "Contras",
     games_count: "Jogos",
-    donate_link: "Donate link",
-    url_safely: "URL Safely"
+    donate_link: "Link de Doação",
+    url_safely: "Verificação da URL",
+    catalogs_indexed: "catálogos indexados",
+    total_games: "Total de Jogos",
+    guides_translations: {
+        "all-guides": {
+            title: "TODOS GUIAS DA ECOLÓGICA VERDE",
+            description: "Acesso completo a todos os guias públicos disponíveis pela Ecológica Verde."
+        },
+        "adobe-guide": {
+            title: "GUIA: Adobe Creative Cloud",
+            description: "Guia completo para instalação e ativação dos aplicativos da Adobe Creative Cloud."
+        },
+        "microsoft-guide": {
+            title: "GUIA: Pacote Microsoft Office e Ativador do Windows",
+            description: "Guia completo para instalação e ativação do Pacote Microsoft Office e Windows."
+        },
+        "sites-warning": {
+            title: "SITES: Fontes Externas não recomendadas",
+            description: "Lista de sites problemáticos (adware, vírus, trojan) e de fontes não recomendadas."
+        },
+        "digimon-guide": {
+            title: "GUIA: Digimon Story: Time Stranger",
+            description: "Guia completo para instalação e configuração do Digimon Story: Time Stranger da Steam."
+        },
+        "elden-guide": {
+            title: "GUIA: ELDEN RING NIGHTREIGN",
+            description: "Guia completo para instalação e configuração do mod (Seamless Co-op) do ELDEN RING NIGHTREIGN."
+        },
+        "ffxv-guide": {
+            title: "GUIA: FINAL FANTASY XV: Windows Edition",
+            description: "Guia completo para instalação e configuração do FINAL FANTASY XV: Windows Edition."
+        },
+        "persona-guide": {
+            title: "GUIA: Persona 3 Reload",
+            description: "Guia completo para instalação e configuração do Persona 3 Reload da Steam."
+        },
+        "smt-guide": {
+            title: "GUIA: Shin Megami Tensei V: Vengeance",
+            description: "Guia completo para instalação e configuração do Shin Megami Tensei V: Vengeance da Steam."
+        }
+    },
+    utilities_translations: {
+        "fmhy": {
+            title: "FMHY: Freemediaheckyeah",
+            description: "<b>Freemediaheckyeah:</b> A maior coleção de coisas grátis na internet!"
+        },
+        "piracy-megathread": {
+            title: "r/Piracy Megathread",
+            description: "<b>Maior thread</b> de conteúdo gratuito do Reddit."
+        },
+        "annas-archive": {
+            title: "Anna`s Archive",
+            description: "A maior biblioteca verdadeiramente aberta da história da humanidade."
+        },
+        "adguard-vpn": {
+            title: "AdGuard VPN",
+            description: "VPN gratuita e proxy para navegação segura."
+        },
+        "cobalt-tools": {
+            title: "Cobalt Tools",
+            description: "Ferramentas para download de mídia de várias plataformas."
+        },
+        "rentry": {
+            title: "Rentry",
+            description: "Serviço de pastebin simples e rápido para compartilhamento de texto."
+        },
+        "spotify-pc": {
+            title: "Spotify-PC",
+            description: "Cliente modificado do Spotify para Windows sem anúncios."
+        },
+        "temp-email": {
+            title: "E-mail Temporário",
+            description: "Serviço de e-mail temporário para registros e verificações."
+        },
+        "ublock": {
+            title: "uBlock Origin",
+            description: "Extensão de navegador para bloquear anúncios e rastreadores."
+        }
+    }
 };
 
 const PROS_CONS_PT = {};
