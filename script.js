@@ -16,13 +16,13 @@ const CONFIG = {
     },
     
     sourceUrls: {
-        'byxatab': 'https://8d4d7cc0.byxatab.pages.dev',
-        'dodi': 'https://ecc7d5fc.dodi.pages.dev',
-        'ecologica': 'https://7d5192b1.ecologica2verde.pages.dev',
-        'fitgirl': 'https://86181f6d.ecofitgirl.pages.dev',
+        'byxatab': 'https://0f7144ca.byxatab.pages.dev',
+        'dodi': 'https://237c3ee4.dodi.pages.dev',
+        'ecologica': 'https://56668f13.ecologica2verde.pages.dev',
+        'fitgirl': 'https://e74037cf.ecofitgirl.pages.dev',
         'gog': 'https://3b60b3cf.freepcgoggames.pages.dev',
-        'onlinefix': 'https://f9bb7467.onlinefixme.pages.dev',
-        'insaneramzes': 'https://767e4309.insaneramzes.pages.dev'
+        'onlinefix': 'https://4c4e4c45.onlinefixme.pages.dev',
+        'insaneramzes': 'https://981d2f21.insaneramzes.pages.dev'
     },
     
     sourceSafetyLinks: {
@@ -221,7 +221,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupCardEffects();
     updateScrollbarVisibility();
     setupGameSearch();
-    setupMobileMenu();
 });
 
 async function initializeApp() {
@@ -271,60 +270,6 @@ async function initializeApp() {
     }
 }
 
-function setupMobileMenu() {
-    const menuToggle = document.getElementById('mobileMenuToggle');
-    const filtersToggle = document.getElementById('mobileFiltersToggle');
-    const leftSidebar = document.getElementById('leftSidebar');
-    const filtersSidebar = document.getElementById('filtersSidebar');
-    const closeSidebar = document.getElementById('mobileCloseSidebar');
-    const closeFilters = document.getElementById('mobileCloseFilters');
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            leftSidebar.classList.toggle('open');
-        });
-    }
-    
-    if (closeSidebar) {
-        closeSidebar.addEventListener('click', () => {
-            leftSidebar.classList.remove('open');
-        });
-    }
-    
-    if (filtersToggle) {
-        filtersToggle.addEventListener('click', () => {
-            filtersSidebar.classList.toggle('open');
-            filtersSidebar.classList.remove('hidden');
-        });
-    }
-    
-    if (closeFilters) {
-        closeFilters.addEventListener('click', () => {
-            filtersSidebar.classList.remove('open');
-            setTimeout(() => {
-                if (!filtersSidebar.classList.contains('open')) {
-                    filtersSidebar.classList.add('hidden');
-                }
-            }, 300);
-        });
-    }
-    
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-            if (leftSidebar && leftSidebar.classList.contains('open')) {
-                if (!leftSidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-                    leftSidebar.classList.remove('open');
-                }
-            }
-            if (filtersSidebar && filtersSidebar.classList.contains('open')) {
-                if (!filtersSidebar.contains(e.target) && !filtersToggle.contains(e.target)) {
-                    filtersSidebar.classList.remove('open');
-                }
-            }
-        }
-    });
-}
-
 function setupNavigation() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
@@ -362,9 +307,6 @@ function setupNavigation() {
                     state.isChangingSection = false;
                 }, 100);
             } else {
-                if (window.innerWidth <= 768) {
-                    filtersSidebar.classList.remove('open');
-                }
                 filtersSidebar.style.opacity = '0';
                 filtersSidebar.style.transform = 'translateX(100%)';
                 
@@ -376,13 +318,6 @@ function setupNavigation() {
             
             state.currentSection = section;
             updateScrollbarVisibility();
-            
-            if (window.innerWidth <= 768) {
-                const leftSidebar = document.getElementById('leftSidebar');
-                if (leftSidebar) {
-                    leftSidebar.classList.remove('open');
-                }
-            }
         });
     });
 }
@@ -1032,12 +967,6 @@ function setupGameSearch() {
                 h.toLowerCase().includes('game')
             );
             
-            const magnetColumnIndex = headers.findIndex(h => 
-                h.toLowerCase().includes('url') || 
-                h.toLowerCase().includes('magnet') ||
-                h.toLowerCase().includes('link')
-            );
-            
             if (nameColumnIndex === -1) return [];
             
             const matches = [];
@@ -1062,17 +991,9 @@ function setupGameSearch() {
                 const gameName_raw = columns[nameColumnIndex] || '';
                 const gameName_clean = gameName_raw.replace(/^"|"$/g, '').trim();
                 
-                let magnetLink = '';
-                if (magnetColumnIndex !== -1 && columns[magnetColumnIndex]) {
-                    magnetLink = columns[magnetColumnIndex].replace(/^"|"$/g, '').trim();
-                }
-                
                 if (gameName_clean.toLowerCase().includes(searchTerm)) {
-                    if (!matches.some(m => m.name === gameName_clean)) {
-                        matches.push({
-                            name: gameName_clean,
-                            magnet: magnetLink
-                        });
+                    if (!matches.includes(gameName_clean)) {
+                        matches.push(gameName_clean);
                     }
                 }
             }
@@ -1146,15 +1067,7 @@ function setupGameSearch() {
                             <i class="fas fa-chevron-down dropdown-icon" data-catalog-id="${catalog.id}"></i>
                         </div>
                         <ul class="games-list" id="games-list-${catalog.id}">
-                            ${matches.map(game => `
-                                <li>
-                                    <div class="game-info">
-                                        <i class="fas fa-gamepad"></i>
-                                        <span class="game-name">${escapeHtml(game.name)}</span>
-                                    </div>
-                                    ${game.magnet ? `<a href="${escapeHtml(game.magnet)}" class="game-link-btn" target="_blank"><i class="fas fa-magnet"></i> Link</a>` : '<span class="game-link-btn disabled" style="opacity:0.5; cursor:not-allowed;"><i class="fas fa-magnet"></i> Sem Link</span>'}
-                                </li>
-                            `).join('')}
+                            ${matches.map(game => `<li><i class="fas fa-gamepad"></i> ${escapeHtml(game)}</li>`).join('')}
                         </ul>
                     </div>
                 `).join('')}
