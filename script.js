@@ -63,7 +63,18 @@ const TRANSLATIONS = {
         found_in: "Encontrado em",
         catalog: "catálogo(s)",
         link_btn: "Link",
-        no_link: "Sem Link"
+        no_link: "Sem Link",
+        source_details: "Detalhes do Catálogo",
+        status_label: "Status",
+        csv_file_label: "Arquivo CSV",
+        recommendation_label: "Recomendação",
+        csv_columns_label: "Colunas do CSV",
+        access_guide: "Acessar Guia",
+        access_utility: "Acessar Utilitário",
+        searching: "Buscando em",
+        catalogs: "catálogos",
+        no_games_message: "Não encontramos",
+        in_catalogs: "em nenhum catálogo"
     },
     en: {
         tagline: "Public Links Indexer",
@@ -129,7 +140,18 @@ const TRANSLATIONS = {
         found_in: "Found in",
         catalog: "catalog(s)",
         link_btn: "Link",
-        no_link: "No Link"
+        no_link: "No Link",
+        source_details: "Catalog Details",
+        status_label: "Status",
+        csv_file_label: "CSV File",
+        recommendation_label: "Recommendation",
+        csv_columns_label: "CSV Columns",
+        access_guide: "Access Guide",
+        access_utility: "Access Utility",
+        searching: "Searching in",
+        catalogs: "catalogs",
+        no_games_message: "We couldn't find",
+        in_catalogs: "in any catalog"
     },
     es: {
         tagline: "Indexador de Enlaces Públicos",
@@ -195,7 +217,18 @@ const TRANSLATIONS = {
         found_in: "Encontrado en",
         catalog: "catálogo(s)",
         link_btn: "Enlace",
-        no_link: "Sin Enlace"
+        no_link: "Sin Enlace",
+        source_details: "Detalles del Catálogo",
+        status_label: "Estado",
+        csv_file_label: "Archivo CSV",
+        recommendation_label: "Recomendación",
+        csv_columns_label: "Columnas CSV",
+        access_guide: "Acceder Guía",
+        access_utility: "Acceder Utilidad",
+        searching: "Buscando en",
+        catalogs: "catálogos",
+        no_games_message: "No encontramos",
+        in_catalogs: "en ningún catálogo"
     },
     ru: {
         tagline: "Индексатор публичных ссылок",
@@ -261,7 +294,18 @@ const TRANSLATIONS = {
         found_in: "Найдено в",
         catalog: "каталоге(ах)",
         link_btn: "Ссылка",
-        no_link: "Нет ссылки"
+        no_link: "Нет ссылки",
+        source_details: "Детали каталога",
+        status_label: "Статус",
+        csv_file_label: "CSV файл",
+        recommendation_label: "Рекомендация",
+        csv_columns_label: "Колонки CSV",
+        access_guide: "Открыть гайд",
+        access_utility: "Открыть утилиту",
+        searching: "Поиск в",
+        catalogs: "каталогах",
+        no_games_message: "Не нашли",
+        in_catalogs: "ни в одном каталоге"
     }
 };
 
@@ -554,8 +598,7 @@ let state = {
     filtersInitialized: false,
     isChangingSection: false,
     gameCounts: {},
-    totalGames: 0
-};
+    totalGames: 0};
 
 document.addEventListener('DOMContentLoaded', async () => {
     await initializeApp();
@@ -568,6 +611,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupGameSearch();
     setupMobileMenu();
     setupLanguageSelector();
+    setupSourceModal();
 });
 
 async function initializeApp() {
@@ -592,7 +636,7 @@ async function initializeApp() {
         const catalogStats = document.getElementById('catalogStats');
         if (catalogStats) {
             const translations = TRANSLATIONS[currentLanguage];
-            catalogStats.textContent = `${sourcesData.sources.length} ${translations?.catalogs_count || 'catálogos indexados'} | ${translations?.total_games || 'Total de Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
+            catalogStats.textContent = `${sourcesData.sources.length} catálogos indexados | Total de Jogos: ${state.totalGames.toLocaleString('pt-BR')}`;
         }
         
         state.sources = sourcesData.sources.map(source => ({
@@ -618,6 +662,58 @@ async function initializeApp() {
     }
 }
 
+function setupSourceModal() {
+    const modal = document.getElementById('sourceModal');
+    const closeBtn = document.getElementById('closeSourceModalBtn');
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+    
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+}
+
+function showSourceDetails(sourceId) {
+    const source = state.sources.find(s => s.id === sourceId);
+    if (!source) return;
+    
+    const statusInfo = CONFIG.statusLabels[source.status];
+    const modal = document.getElementById('sourceModal');
+    const statusSpan = document.getElementById('sourceModalStatus');
+    const filenameSpan = document.getElementById('sourceModalFilename');
+    const starsDiv = document.getElementById('sourceModalStars');
+    const columnsDiv = document.getElementById('sourceModalColumns');
+    
+    if (statusSpan) {
+        statusSpan.className = `status-indicator ${statusInfo.class}`;
+        statusSpan.innerHTML = `<i class="fas ${statusInfo.icon}"></i> ${statusInfo.label}`;
+    }
+    
+    if (filenameSpan) {
+        filenameSpan.textContent = `${source.filename}.csv`;
+    }
+    
+    if (starsDiv) {
+        starsDiv.innerHTML = getStarsHTML(source.stars);
+    }
+    
+    if (columnsDiv) {
+        columnsDiv.innerHTML = source.csvColumns.map(col => `<span class="column-tag">${col}</span>`).join('');
+    }
+    
+    if (modal) {
+        modal.style.display = 'flex';
+    }
+}
+
 function setupMobileMenu() {
     const menuToggle = document.getElementById('mobileMenuToggle');
     const filtersToggle = document.getElementById('mobileFiltersToggle');
@@ -626,22 +722,39 @@ function setupMobileMenu() {
     const closeSidebar = document.getElementById('mobileCloseSidebar');
     const closeFilters = document.getElementById('mobileCloseFilters');
     
+    function closeAllSidebars() {
+        if (leftSidebar) leftSidebar.classList.remove('open');
+        if (filtersSidebar) {
+            filtersSidebar.classList.remove('open');
+            filtersSidebar.classList.add('hidden');
+        }
+    }
+    
     if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (filtersSidebar && filtersSidebar.classList.contains('open')) {
+                filtersSidebar.classList.remove('open');
+                filtersSidebar.classList.add('hidden');
+            }
             leftSidebar.classList.toggle('open');
+        });
+    }
+    
+    if (filtersToggle) {
+        filtersToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (leftSidebar && leftSidebar.classList.contains('open')) {
+                leftSidebar.classList.remove('open');
+            }
+            filtersSidebar.classList.toggle('open');
+            filtersSidebar.classList.remove('hidden');
         });
     }
     
     if (closeSidebar) {
         closeSidebar.addEventListener('click', () => {
             leftSidebar.classList.remove('open');
-        });
-    }
-    
-    if (filtersToggle) {
-        filtersToggle.addEventListener('click', () => {
-            filtersSidebar.classList.toggle('open');
-            filtersSidebar.classList.remove('hidden');
         });
     }
     
@@ -666,6 +779,11 @@ function setupMobileMenu() {
             if (filtersSidebar && filtersSidebar.classList.contains('open')) {
                 if (!filtersSidebar.contains(e.target) && !filtersToggle.contains(e.target)) {
                     filtersSidebar.classList.remove('open');
+                    setTimeout(() => {
+                        if (!filtersSidebar.classList.contains('open')) {
+                            filtersSidebar.classList.add('hidden');
+                        }
+                    }, 300);
                 }
             }
         }
@@ -698,9 +816,6 @@ function setupNavigation() {
             
             if (section === 'sources') {
                 filtersSidebar.classList.remove('hidden');
-                
-                void filtersSidebar.offsetWidth;
-                
                 filtersSidebar.style.opacity = '1';
                 filtersSidebar.style.transform = 'translateX(0)';
                 
@@ -1122,65 +1237,6 @@ function handleAccessSource(sourceId) {
     
     console.log(`Acessando: ${source.name}`);
     console.log(`Arquivo CSV: ${source.filename}.csv`);
-}
-
-function showSourceDetails(sourceId) {
-    const source = state.sources.find(s => s.id === sourceId);
-    const statusInfo = CONFIG.statusLabels[source.status];
-    
-    const modalHTML = `
-        <div class="modal-overlay" id="sourceModal">
-            <div class="modal">
-                <div class="modal-header">
-                    <h2>${source.name}</h2>
-                    <button class="modal-close" onclick="closeModal()">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <label>Status</label>
-                            <span class="status-indicator ${statusInfo.class}">
-                                <i class="fas ${statusInfo.icon}"></i>
-                                ${statusInfo.label}
-                            </span>
-                        </div>
-                        
-                        <div class="info-item">
-                            <label>Arquivo CSV</label>
-                            <code>${source.filename}.csv</code>
-                        </div>
-                        
-                        <div class="info-item">
-                            <label>Recomendação</label>
-                            <div class="stars">
-                                ${getStarsHTML(source.stars)}
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <label>Colunas do CSV</label>
-                            <div class="csv-columns">
-                                ${source.csvColumns.map(col => `<span class="column-tag">${col}</span>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
-    
-    document.getElementById('sourceModal').addEventListener('click', (e) => {
-        if (e.target.id === 'sourceModal') {
-            closeModal();
-        }
-    });
-}
-
-function closeModal() {
-    const modal = document.getElementById('sourceModal');
-    if (modal) modal.remove();
 }
 
 function showError(message, section) {

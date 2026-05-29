@@ -22,8 +22,6 @@ body {
 .app-container {
     display: flex;
     height: 100vh;
-    max-height: 1080px;
-    min-height: 900px;
     background: #0a0a0a;
 }
 
@@ -1269,6 +1267,11 @@ body {
     animation: modalFadeIn 0.3s ease;
 }
 
+.modal-container.modal-small {
+    height: auto;
+    max-width: 500px;
+}
+
 @keyframes modalFadeIn {
     from {
         opacity: 0;
@@ -1344,6 +1347,50 @@ body {
 
 .modal-body::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+.source-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-item label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #4caf50;
+    font-family: monospace;
+}
+
+.csv-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.column-tag {
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 10px;
+    color: #4caf50;
 }
 
 .search-input-wrapper {
@@ -1692,6 +1739,7 @@ body {
     
     .content-wrapper {
         padding: 16px;
+        padding-bottom: 80px;
     }
     
     .sources-grid {
@@ -1727,6 +1775,11 @@ body {
     .modal-container {
         width: 95%;
         height: 85vh;
+    }
+    
+    .modal-container.modal-small {
+        height: auto;
+        max-height: 85vh;
     }
     
     .modal-body {
