@@ -1,3 +1,348 @@
+const TRANSLATIONS = {
+    pt: {
+        tagline: "Indexador de Links Públicos",
+        nav_catalogs_title: "Navegação",
+        nav_catalogs: "Catálogos",
+        nav_guides: "Guias",
+        nav_utilities: "Utilitários",
+        nav_dmca: "DMCA & Direitos Autorais",
+        about_title: "Sobre o Projeto",
+        about_text: "<strong>Ecológica Verde</strong> é um projeto sem fins lucrativos que atua como <strong>indexador de links públicos</strong>. Não hospedamos nenhum conteúdo - apenas organizamos e catalogamos os links disponíveis publicamente.",
+        nonprofit: "Projeto sem fins lucrativos",
+        catalogs_title: "Catálogos Disponíveis",
+        search_btn: "Procurar Jogo nos Catálogos",
+        loading: "Carregando catálogos...",
+        guides_title: "Guias Disponíveis",
+        utilities_title: "Utilitários Disponíveis",
+        dmca_title: "DMCA & Direitos Autorais",
+        dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Direitos Autorais",
+        dmca_declaration_title: "Declaração Legal",
+        dmca_text_1: "O projeto <strong>Ecológica Verde</strong> atua exclusivamente como um <strong>indexador de links públicos</strong>. É fundamental compreender nossa posição e responsabilidades:",
+        dmca_point_1_title: "1. Não Hospedagem de Conteúdo",
+        dmca_point_1_text: "Não hospedamos, armazenamos ou distribuímos qualquer arquivo de jogo, software ou mídia protegida por direitos autorais. Todo o conteúdo referenciado está localizado em servidores de terceiros.",
+        dmca_point_2_title: "2. Indexação de Links Públicos",
+        dmca_point_2_text: "Atuamos como um catálogo organizador de URLs publicamente disponíveis na internet. Não temos controle sobre o conteúdo hospedado nos catálogos indexados.",
+        dmca_point_3_title: "3. Sem Associação com os Catálogos",
+        dmca_point_3_text: "Não temos qualquer vínculo comercial, parceria ou afiliação com os sites e catálogos listados. O catálogo 'Ecológica Verde' é um projeto independente e sem fins lucrativos que reúne links públicos disponíveis na internet, funcionando exclusivamente como uma curadoria de referências. Cada site ou catálogo externo listado opera de forma totalmente autônoma e não possui qualquer relação comercial conosco.",
+        dmca_point_4_title: "4. Suporte aos Desenvolvedores",
+        dmca_point_4_text: "Encorajamos fortemente a compra legal de jogos e suporte aos desenvolvedores. Se você gostou de um jogo, considere adquirir a versão oficial para apoiar o trabalho dos criadores.",
+        dmca_point_5_title: "5. Remoção de Links (DMCA)",
+        dmca_point_5_text: "Respeitamos os direitos autorais e seguimos o Digital Millennium Copyright Act (DMCA). Proprietários de direitos podem solicitar a remoção de links específicos através do nosso canal de contato.",
+        dmca_point_6_title: "6. Contato para Questões DMCA",
+        dmca_point_6_text: "Para solicitações de remoção de links ou questões sobre direitos autorais, entre em contato através das nossas redes sociais.",
+        dmca_notice_title: "Aviso Importante",
+        dmca_notice_text: "Este projeto é mantido sem fins lucrativos e tem como objetivo facilitar o acesso a informações já disponíveis publicamente. O uso dos catálogos listados é de inteira responsabilidade do usuário final.",
+        filters_title: "Filtros",
+        search_placeholder: "Pesquisar catálogo...",
+        filter_sort_by: "Ordenar por",
+        sort_name: "Nome (A-Z)",
+        sort_status: "Status dos Catálogos",
+        sort_recommended: "Mais Recomendado",
+        sort_games: "Mais Jogos",
+        filter_content_type: "Tipo de Conteúdo",
+        type_all: "Todos",
+        type_repacks: "Repacks",
+        type_gog: "GOG Games",
+        type_online: "Multiplayer Online",
+        type_folder: "Game Folder",
+        filter_status: "Status dos Catálogos",
+        status_all: "Todos",
+        status_trusted: "Confiável",
+        status_verified: "Seguro para Usar",
+        status_risk: "Com Risco",
+        reset_filters: "Limpar Filtros",
+        modal_title: "Localizar Jogo nos Catálogos",
+        modal_search_placeholder: "Digite o nome do jogo...",
+        modal_search_btn: "Buscar",
+        modal_placeholder: "Digite o nome de um jogo para ver em qual(is) catálogo(s) ele está",
+        no_results: "Nenhum catálogo encontrado",
+        no_results_tip: "Tente ajustar os filtros ou a pesquisa",
+        no_games: "Nenhum jogo encontrado",
+        search_tip: "Dica: Tente usar apenas parte do nome ou verifique a ortografia.",
+        games_found: "jogo(s)",
+        found_in: "Encontrado em",
+        catalog: "catálogo(s)",
+        link_btn: "Link",
+        no_link: "Sem Link"
+    },
+    en: {
+        tagline: "Public Links Indexer",
+        nav_catalogs_title: "Navigation",
+        nav_catalogs: "Catalogs",
+        nav_guides: "Guides",
+        nav_utilities: "Utilities",
+        nav_dmca: "DMCA & Copyright",
+        about_title: "About the Project",
+        about_text: "<strong>Ecológica Verde</strong> is a non-profit project that acts as a <strong>public links indexer</strong>. We do not host any content - we only organize and catalog publicly available links.",
+        nonprofit: "Non-profit project",
+        catalogs_title: "Available Catalogs",
+        search_btn: "Search Game in Catalogs",
+        loading: "Loading catalogs...",
+        guides_title: "Available Guides",
+        utilities_title: "Available Utilities",
+        dmca_title: "DMCA & Copyright",
+        dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Copyright",
+        dmca_declaration_title: "Legal Statement",
+        dmca_text_1: "<strong>Ecológica Verde</strong> acts exclusively as a <strong>public links indexer</strong>. It is essential to understand our position and responsibilities:",
+        dmca_point_1_title: "1. No Content Hosting",
+        dmca_point_1_text: "We do not host, store or distribute any game files, software or copyrighted media. All referenced content is located on third-party servers.",
+        dmca_point_2_title: "2. Public Links Indexing",
+        dmca_point_2_text: "We act as an organizing catalog of publicly available URLs on the internet. We have no control over the content hosted on indexed catalogs.",
+        dmca_point_3_title: "3. No Association with Catalogs",
+        dmca_point_3_text: "We have no commercial relationship, partnership or affiliation with the listed sites and catalogs. The 'Ecológica Verde' catalog is an independent non-profit project that brings together publicly available links on the internet, functioning exclusively as a reference curation. Each external listed site or catalog operates completely autonomously and has no commercial relationship with us.",
+        dmca_point_4_title: "4. Support for Developers",
+        dmca_point_4_text: "We strongly encourage legal purchase of games and support for developers. If you enjoyed a game, consider purchasing the official version to support the creators' work.",
+        dmca_point_5_title: "5. Link Removal (DMCA)",
+        dmca_point_5_text: "We respect copyright and follow the Digital Millennium Copyright Act (DMCA). Rights holders may request removal of specific links through our contact channel.",
+        dmca_point_6_title: "6. Contact for DMCA Issues",
+        dmca_point_6_text: "For link removal requests or copyright issues, contact us through our social networks.",
+        dmca_notice_title: "Important Notice",
+        dmca_notice_text: "This project is maintained non-profit and aims to facilitate access to information already publicly available. Use of the listed catalogs is entirely the responsibility of the end user.",
+        filters_title: "Filters",
+        search_placeholder: "Search catalog...",
+        filter_sort_by: "Sort by",
+        sort_name: "Name (A-Z)",
+        sort_status: "Catalog Status",
+        sort_recommended: "Most Recommended",
+        sort_games: "Most Games",
+        filter_content_type: "Content Type",
+        type_all: "All",
+        type_repacks: "Repacks",
+        type_gog: "GOG Games",
+        type_online: "Multiplayer Online",
+        type_folder: "Game Folder",
+        filter_status: "Catalog Status",
+        status_all: "All",
+        status_trusted: "Trusted",
+        status_verified: "Safe to Use",
+        status_risk: "At Risk",
+        reset_filters: "Clear Filters",
+        modal_title: "Find Game in Catalogs",
+        modal_search_placeholder: "Enter game name...",
+        modal_search_btn: "Search",
+        modal_placeholder: "Enter a game name to see which catalog(s) it is in",
+        no_results: "No catalogs found",
+        no_results_tip: "Try adjusting filters or search",
+        no_games: "No games found",
+        search_tip: "Tip: Try using only part of the name or check spelling",
+        games_found: "game(s)",
+        found_in: "Found in",
+        catalog: "catalog(s)",
+        link_btn: "Link",
+        no_link: "No Link"
+    },
+    es: {
+        tagline: "Indexador de Enlaces Públicos",
+        nav_catalogs_title: "Navegación",
+        nav_catalogs: "Catálogos",
+        nav_guides: "Guías",
+        nav_utilities: "Utilidades",
+        nav_dmca: "DMCA & Derechos de Autor",
+        about_title: "Sobre el Proyecto",
+        about_text: "<strong>Ecológica Verde</strong> es un proyecto sin fines de lucro que actúa como <strong>indexador de enlaces públicos</strong>. No alojamos ningún contenido, solo organizamos y catalogamos enlaces disponibles públicamente.",
+        nonprofit: "Proyecto sin fines de lucro",
+        catalogs_title: "Catálogos Disponibles",
+        search_btn: "Buscar Juego en Catálogos",
+        loading: "Cargando catálogos...",
+        guides_title: "Guías Disponibles",
+        utilities_title: "Utilidades Disponibles",
+        dmca_title: "DMCA & Derechos de Autor",
+        dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Derechos de Autor",
+        dmca_declaration_title: "Declaración Legal",
+        dmca_text_1: "El proyecto <strong>Ecológica Verde</strong> actúa exclusivamente como un <strong>indexador de enlaces públicos</strong>. Es fundamental comprender nuestra posición y responsabilidades:",
+        dmca_point_1_title: "1. No Alojamiento de Contenido",
+        dmca_point_1_text: "No alojamos, almacenamos ni distribuimos archivos de juegos, software o medios protegidos por derechos de autor. Todo el contenido referenciado está ubicado en servidores de terceros.",
+        dmca_point_2_title: "2. Indexación de Enlaces Públicos",
+        dmca_point_2_text: "Actuamos como un catálogo organizador de URL disponibles públicamente en internet. No tenemos control sobre el contenido alojado en los catálogos indexados.",
+        dmca_point_3_title: "3. Sin Asociación con los Catálogos",
+        dmca_point_3_text: "No tenemos ninguna relación comercial, asociación o afiliación con los sitios y catálogos listados. El catálogo 'Ecológica Verde' es un proyecto independiente sin fines de lucro que reúne enlaces públicos disponibles en internet, funcionando exclusivamente como una curaduría de referencias. Cada sitio o catálogo externo listado opera de forma totalmente autónoma y no tiene ninguna relación comercial con nosotros.",
+        dmca_point_4_title: "4. Apoyo a los Desarrolladores",
+        dmca_point_4_text: "Recomendamos encarecidamente la compra legal de juegos y el apoyo a los desarrolladores. Si te gustó un juego, considera comprar la versión oficial para apoyar el trabajo de los creadores.",
+        dmca_point_5_title: "5. Eliminación de Enlaces (DMCA)",
+        dmca_point_5_text: "Respetamos los derechos de autor y seguimos la Ley de Derechos de Autor del Milenio Digital (DMCA). Los titulares de derechos pueden solicitar la eliminación de enlaces específicos a través de nuestro canal de contacto.",
+        dmca_point_6_title: "6. Contacto para Asuntos DMCA",
+        dmca_point_6_text: "Para solicitudes de eliminación de enlaces o cuestiones de derechos de autor, contáctenos a través de nuestras redes sociales.",
+        dmca_notice_title: "Aviso Importante",
+        dmca_notice_text: "Este proyecto se mantiene sin fines de lucro y tiene como objetivo facilitar el acceso a información ya disponible públicamente. El uso de los catálogos listados es responsabilidad exclusiva del usuario final.",
+        filters_title: "Filtros",
+        search_placeholder: "Buscar catálogo...",
+        filter_sort_by: "Ordenar por",
+        sort_name: "Nombre (A-Z)",
+        sort_status: "Estado de Catálogos",
+        sort_recommended: "Más Recomendado",
+        sort_games: "Más Juegos",
+        filter_content_type: "Tipo de Contenido",
+        type_all: "Todos",
+        type_repacks: "Repacks",
+        type_gog: "Juegos GOG",
+        type_online: "Multijugador Online",
+        type_folder: "Game Folder",
+        filter_status: "Estado de Catálogos",
+        status_all: "Todos",
+        status_trusted: "Confiables",
+        status_verified: "Seguro de Usar",
+        status_risk: "Con Riesgo",
+        reset_filters: "Limpiar Filtros",
+        modal_title: "Localizar Juego en Catálogos",
+        modal_search_placeholder: "Ingrese el nombre del juego...",
+        modal_search_btn: "Buscar",
+        modal_placeholder: "Ingrese un nombre de juego para ver en qué catálogo(s) está",
+        no_results: "No se encontraron catálogos",
+        no_results_tip: "Intente ajustar los filtros o la búsqueda",
+        no_games: "No se encontraron juegos",
+        search_tip: "Consejo: Intente usar solo parte del nombre o verifique la ortografía",
+        games_found: "juego(s)",
+        found_in: "Encontrado en",
+        catalog: "catálogo(s)",
+        link_btn: "Enlace",
+        no_link: "Sin Enlace"
+    },
+    ru: {
+        tagline: "Индексатор публичных ссылок",
+        nav_catalogs_title: "Навигация",
+        nav_catalogs: "Каталоги",
+        nav_guides: "Гайды",
+        nav_utilities: "Утилиты",
+        nav_dmca: "DMCA & Авторские права",
+        about_title: "О проекте",
+        about_text: "<strong>Ecológica Verde</strong> - некоммерческий проект, который действует как <strong>индексатор публичных ссылок</strong>. Мы не размещаем никакой контент - мы только организуем и каталогизируем общедоступные ссылки.",
+        nonprofit: "Некоммерческий проект",
+        catalogs_title: "Доступные каталоги",
+        search_btn: "Поиск игры в каталогах",
+        loading: "Загрузка каталогов...",
+        guides_title: "Доступные гайды",
+        utilities_title: "Доступные утилиты",
+        dmca_title: "DMCA & Авторские права",
+        dmca_subtitle: "Digital Millennium Copyright Act (DMCA) & Авторские права",
+        dmca_declaration_title: "Правовое заявление",
+        dmca_text_1: "Проект <strong>Ecológica Verde</strong> действует исключительно как <strong>индексатор публичных ссылок</strong>. Важно понимать нашу позицию и ответственность:",
+        dmca_point_1_title: "1. Не размещение контента",
+        dmca_point_1_text: "Мы не размещаем, не храним и не распространяем файлы игр, программное обеспечение или материалы, защищенные авторским правом. Весь упомянутый контент находится на сторонних серверах.",
+        dmca_point_2_title: "2. Индексация публичных ссылок",
+        dmca_point_2_text: "Мы действуем как каталог, организующий общедоступные URL-адреса в интернете. Мы не контролируем контент, размещенный в индексируемых каталогах.",
+        dmca_point_3_title: "3. Нет ассоциации с каталогами",
+        dmca_point_3_text: "У нас нет коммерческих отношений, партнерства или affiliation с перечисленными сайтами и каталогами. Каталог 'Ecológica Verde' - это независимый некоммерческий проект, собирающий общедоступные ссылки в интернете, функционирующий исключительно как кураторский справочник. Каждый внешний сайт или каталог работает полностью автономно и не имеет с нами коммерческих отношений.",
+        dmca_point_4_title: "4. Поддержка разработчиков",
+        dmca_point_4_text: "Мы настоятельно рекомендуем легальную покупку игр и поддержку разработчиков. Если вам понравилась игра, рассмотрите возможность приобретения официальной версии для поддержки работы создателей.",
+        dmca_point_5_title: "5. Удаление ссылок (DMCA)",
+        dmca_point_5_text: "Мы уважаем авторские права и следуем Закону об авторском праве в цифровую эпоху (DMCA). Правообладатели могут запросить удаление конкретных ссылок через наш канал связи.",
+        dmca_point_6_title: "6. Контакт по вопросам DMCA",
+        dmca_point_6_text: "Для запросов на удаление ссылок или вопросов об авторских правах, свяжитесь с нами через наши социальные сети.",
+        dmca_notice_title: "Важное уведомление",
+        dmca_notice_text: "Этот проект поддерживается на некоммерческой основе и направлен на облегчение доступа к информации, уже находящейся в открытом доступе. Использование перечисленных каталогов является исключительной ответственностью конечного пользователя.",
+        filters_title: "Фильтры",
+        search_placeholder: "Поиск каталога...",
+        filter_sort_by: "Сортировать по",
+        sort_name: "Имени (А-Я)",
+        sort_status: "Статусу каталогов",
+        sort_recommended: "Наиболее рекомендуемые",
+        sort_games: "Больше игр",
+        filter_content_type: "Тип контента",
+        type_all: "Все",
+        type_repacks: "Repacks",
+        type_gog: "Игры GOG",
+        type_online: "Мультиплеер онлайн",
+        type_folder: "Game Folder",
+        filter_status: "Статус каталогов",
+        status_all: "Все",
+        status_trusted: "Надежные",
+        status_verified: "Безопасно для использования",
+        status_risk: "С риском",
+        reset_filters: "Сбросить фильтры",
+        modal_title: "Найти игру в каталогах",
+        modal_search_placeholder: "Введите название игры...",
+        modal_search_btn: "Поиск",
+        modal_placeholder: "Введите название игры, чтобы увидеть, в каком(их) каталоге(ах) она находится",
+        no_results: "Каталоги не найдены",
+        no_results_tip: "Попробуйте отрегулировать фильтры или поиск",
+        no_games: "Игры не найдены",
+        search_tip: "Совет: попробуйте использовать только часть названия или проверьте орфографию",
+        games_found: "игра(ы)",
+        found_in: "Найдено в",
+        catalog: "каталоге(ах)",
+        link_btn: "Ссылка",
+        no_link: "Нет ссылки"
+    }
+};
+
+let currentLanguage = 'pt';
+
+function applyTranslations(lang) {
+    const translations = TRANSLATIONS[lang];
+    if (!translations) return;
+    
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[key];
+            } else {
+                element.innerHTML = translations[key];
+            }
+        }
+    });
+    
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[key]) {
+            element.placeholder = translations[key];
+        }
+    });
+    
+    const langNames = { pt: 'Português', en: 'English', es: 'Español', ru: 'Русский' };
+    const currentLabel = document.getElementById('currentLanguageLabel');
+    if (currentLabel) currentLabel.textContent = langNames[lang];
+    
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+    
+    localStorage.setItem('siteLanguage', lang);
+    
+    refreshCatalogStats();
+}
+
+function refreshCatalogStats() {
+    const catalogStats = document.getElementById('catalogStats');
+    if (catalogStats && state && state.totalGames) {
+        const translations = TRANSLATIONS[currentLanguage];
+        catalogStats.textContent = `${state.sources.length} ${translations?.catalogs_count || 'catálogos indexados'} | ${translations?.total_games || 'Total de Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
+    }
+}
+
+function setupLanguageSelector() {
+    const savedLang = localStorage.getItem('siteLanguage');
+    if (savedLang && TRANSLATIONS[savedLang]) {
+        currentLanguage = savedLang;
+        applyTranslations(currentLanguage);
+    }
+    
+    const menuBtn = document.getElementById('languageMenuBtn');
+    const dropdown = document.getElementById('languageDropdown');
+    
+    if (menuBtn && dropdown) {
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+        
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                const lang = option.getAttribute('data-lang');
+                if (lang && TRANSLATIONS[lang]) {
+                    currentLanguage = lang;
+                    applyTranslations(currentLanguage);
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+}
+
 const CONFIG = {
     statusLabels: {
         'trusted': { label: 'Confiável', class: 'status-trusted', icon: 'fa-shield-alt' },
@@ -222,6 +567,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateScrollbarVisibility();
     setupGameSearch();
     setupMobileMenu();
+    setupLanguageSelector();
 });
 
 async function initializeApp() {
@@ -245,7 +591,8 @@ async function initializeApp() {
         
         const catalogStats = document.getElementById('catalogStats');
         if (catalogStats) {
-            catalogStats.textContent = `${sourcesData.sources.length} catálogos indexados | Total de Jogos: ${state.totalGames.toLocaleString('pt-BR')}`;
+            const translations = TRANSLATIONS[currentLanguage];
+            catalogStats.textContent = `${sourcesData.sources.length} ${translations?.catalogs_count || 'catálogos indexados'} | ${translations?.total_games || 'Total de Jogos'}: ${state.totalGames.toLocaleString('pt-BR')}`;
         }
         
         state.sources = sourcesData.sources.map(source => ({
@@ -553,11 +900,12 @@ function renderSources() {
     if (!grid) return;
     
     if (state.filteredSources.length === 0) {
+        const translations = TRANSLATIONS[currentLanguage];
         grid.innerHTML = `
             <div class="no-results">
                 <i class="fas fa-search"></i>
-                <h3>Nenhum catálogo encontrado</h3>
-                <p>Tente ajustar os filtros ou a pesquisa</p>
+                <h3>${translations?.no_results || 'Nenhum catálogo encontrado'}</h3>
+                <p>${translations?.no_results_tip || 'Tente ajustar os filtros ou a pesquisa'}</p>
             </div>
         `;
         return;
@@ -577,7 +925,7 @@ function renderSources() {
                     <div class="card-subtitle">
                         <div class="donate-safety-links">
                             ${isEcologica ? 
-                                `<span>Projeto sem fins lucrativo</span>` : 
+                                `<span>${TRANSLATIONS[currentLanguage]?.nonprofit || 'Projeto sem fins lucrativo'}</span>` : 
                                 source.shortName
                             }
                             <span class="divider">|</span>
@@ -659,11 +1007,12 @@ function loadGuides() {
     if (!grid) return;
     
     if (CONFIG.guides.length === 0) {
+        const translations = TRANSLATIONS[currentLanguage];
         grid.innerHTML = `
             <div class="no-results">
                 <i class="fas fa-book"></i>
-                <h3>Nenhum guia disponível</h3>
-                <p>Os guias serão adicionados em breve</p>
+                <h3>${translations?.no_guides || 'Nenhum guia disponível'}</h3>
+                <p>${translations?.coming_soon || 'Os guias serão adicionados em breve'}</p>
             </div>
         `;
         return;
@@ -685,7 +1034,7 @@ function loadGuides() {
             <div class="card-actions">
                 <a href="${guide.url}" class="btn btn-primary btn-guide" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
-                    Acessar Guia
+                    ${TRANSLATIONS[currentLanguage]?.access_guide || 'Acessar Guia'}
                 </a>
             </div>
         </article>
@@ -699,11 +1048,12 @@ function loadUtilities() {
     if (!grid) return;
     
     if (CONFIG.utilities.length === 0) {
+        const translations = TRANSLATIONS[currentLanguage];
         grid.innerHTML = `
             <div class="no-results">
                 <i class="fas fa-tools"></i>
-                <h3>Nenhum utilitário disponível</h3>
-                <p>Os utilitários serão adicionados em breve</p>
+                <h3>${translations?.no_utilities || 'Nenhum utilitário disponível'}</h3>
+                <p>${translations?.coming_soon || 'Os utilitários serão adicionados em breve'}</p>
             </div>
         `;
         return;
@@ -733,7 +1083,7 @@ function loadUtilities() {
             <div class="card-actions">
                 <a href="${utility.url}" class="btn btn-primary btn-utility" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
-                    Acessar Utilitário
+                    ${TRANSLATIONS[currentLanguage]?.access_utility || 'Acessar Utilitário'}
                 </a>
             </div>
         </article>
@@ -983,10 +1333,11 @@ function setupGameSearch() {
     function closeSearchModal() {
         modal.style.display = 'none';
         searchInput.value = '';
+        const translations = TRANSLATIONS[currentLanguage];
         resultsContainer.innerHTML = `
             <div class="search-placeholder">
                 <i class="fas fa-gamepad"></i>
-                <p>Digite o nome de um jogo para ver em qual(is) catálogo(s) ele está</p>
+                <p>${translations?.modal_placeholder || 'Digite o nome de um jogo para ver em qual(is) catálogo(s) ele está'}</p>
             </div>
         `;
         if (modalBody) {
@@ -1087,12 +1438,13 @@ function setupGameSearch() {
 
     async function performSearch() {
         const gameName = searchInput.value.trim();
+        const translations = TRANSLATIONS[currentLanguage];
         
         if (!gameName) {
             resultsContainer.innerHTML = `
                 <div class="search-placeholder">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <p>Digite o nome de um jogo para buscar</p>
+                    <p>${translations?.modal_search_error || 'Digite o nome de um jogo para buscar'}</p>
                 </div>
             `;
             return;
@@ -1103,7 +1455,7 @@ function setupGameSearch() {
         resultsContainer.innerHTML = `
             <div class="search-loading">
                 <div class="loading-spinner-small"></div>
-                <p>Buscando em ${catalogs.length} catálogos...</p>
+                <p>${translations?.searching || 'Buscando em'} ${catalogs.length} ${translations?.catalogs || 'catálogos'}...</p>
             </div>
         `;
         
@@ -1123,9 +1475,9 @@ function setupGameSearch() {
             resultsContainer.innerHTML = `
                 <div class="search-no-results">
                     <i class="fas fa-face-frown"></i>
-                    <h4>Nenhum jogo encontrado</h4>
-                    <p>Não encontramos "${gameName}" em nenhum catálogo.</p>
-                    <p class="search-tip">Dica: Tente usar apenas parte do nome ou verifique a ortografia.</p>
+                    <h4>${translations?.no_games || 'Nenhum jogo encontrado'}</h4>
+                    <p>${translations?.no_games_message || 'Não encontramos'} "${gameName}" ${translations?.in_catalogs || 'em nenhum catálogo'}.</p>
+                    <p class="search-tip">${translations?.search_tip || 'Dica: Tente usar apenas parte do nome ou verifique a ortografia.'}</p>
                 </div>
             `;
             return;
@@ -1134,7 +1486,7 @@ function setupGameSearch() {
         resultsContainer.innerHTML = `
             <div class="search-results-header">
                 <i class="fas fa-check-circle"></i>
-                <span>Encontrado em ${catalogsWithMatches.length} catálogo(s)</span>
+                <span>${translations?.found_in || 'Encontrado em'} ${catalogsWithMatches.length} ${translations?.catalog || 'catálogo(s)'}</span>
             </div>
             <div class="catalogs-list">
                 ${catalogsWithMatches.map(({ catalog, matches }, index) => `
@@ -1142,7 +1494,7 @@ function setupGameSearch() {
                         <div class="catalog-result-header" data-catalog-id="${catalog.id}">
                             <i class="fas ${catalog.icon}"></i>
                             <strong>${catalog.name}</strong>
-                            <span class="match-count">${matches.length} jogo(s)</span>
+                            <span class="match-count">${matches.length} ${translations?.games_found || 'jogo(s)'}</span>
                             <i class="fas fa-chevron-down dropdown-icon" data-catalog-id="${catalog.id}"></i>
                         </div>
                         <ul class="games-list" id="games-list-${catalog.id}">
@@ -1152,7 +1504,7 @@ function setupGameSearch() {
                                         <i class="fas fa-gamepad"></i>
                                         <span class="game-name">${escapeHtml(game.name)}</span>
                                     </div>
-                                    ${game.magnet ? `<a href="${escapeHtml(game.magnet)}" class="game-link-btn" target="_blank"><i class="fas fa-magnet"></i> Link</a>` : '<span class="game-link-btn disabled" style="opacity:0.5; cursor:not-allowed;"><i class="fas fa-magnet"></i> Sem Link</span>'}
+                                    ${game.magnet ? `<a href="${escapeHtml(game.magnet)}" class="game-link-btn" target="_blank"><i class="fas fa-magnet"></i> ${translations?.link_btn || 'Link'}</a>` : `<span class="game-link-btn disabled" style="opacity:0.5; cursor:not-allowed;"><i class="fas fa-magnet"></i> ${translations?.no_link || 'Sem Link'}</span>`}
                                 </li>
                             `).join('')}
                         </ul>
