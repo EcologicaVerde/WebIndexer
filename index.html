@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Ecológica Verde | Indexador de Links Públicos</title>
     <meta name="description" content="Indexador sem fins lucrativos de link públicos com curadoria especializada">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,14 @@
 </head>
 <body>
     <div class="app-container">
-        <aside class="sidebar left-sidebar">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button class="mobile-filters-toggle" id="mobileFiltersToggle">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+
+        <aside class="sidebar left-sidebar" id="leftSidebar">
             <div class="sidebar-content">
                 <div class="sidebar-header">
                     <div class="logo-section">
@@ -25,6 +32,9 @@
                             <p class="tagline">Indexador de Links Públicos</p>
                         </div>
                     </div>
+                    <button class="mobile-close-sidebar" id="mobileCloseSidebar">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
                 
                 <nav class="sidebar-nav">
@@ -210,6 +220,12 @@
 
         <aside class="sidebar right-sidebar filters-sidebar" id="filtersSidebar">
             <div class="sidebar-content">
+                <div class="filters-header-mobile">
+                    <h4>Filtros</h4>
+                    <button class="mobile-close-filters" id="mobileCloseFilters">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
                 <div class="search-container">
                     <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar catálogo...">
                 </div>
