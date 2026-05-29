@@ -464,6 +464,13 @@ body {
     margin-bottom: 40px;
 }
 
+#guides-grid, #utilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
 .source-card {
     background: #111111;
     border: 1px solid #1a1a1a;
@@ -1641,6 +1648,10 @@ body {
     .sources-grid {
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
+    
+    #guides-grid, #utilities-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1649,6 +1660,10 @@ body {
     }
     
     .sources-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+    
+    #guides-grid, #utilities-grid {
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
 }
@@ -1737,6 +1752,11 @@ body {
     }
     
     .sources-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    #guides-grid, #utilities-grid {
         grid-template-columns: 1fr;
         gap: 16px;
     }
@@ -1836,6 +1856,10 @@ body {
     }
     
     .sources-grid {
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    }
+    
+    #guides-grid, #utilities-grid {
         grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
     }
     
