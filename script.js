@@ -1328,9 +1328,9 @@ function setupGameSearch() {
                                 const hasVersion = game.version && game.version !== 'N/A' && game.version !== '';
                                 
                                 if (hasBuild) {
-                                    versionInfo = `<span class="game-version"><i class="fas fa-code-branch"></i> ${escapeHtml(game.build)}</span>`;
+                                    versionInfo = `<span class="game-version"><i class="fas fa-code-branch"></i> Build: ${escapeHtml(game.build)}</span>`;
                                 } else if (hasVersion) {
-                                    versionInfo = `<span class="game-version"><i class="fas fa-tag"></i> ${escapeHtml(game.version)}</span>`;
+                                    versionInfo = `<span class="game-version"><i class="fas fa-tag"></i> Versão: ${escapeHtml(game.version)}</span>`;
                                 }
                                 
                                 return `
