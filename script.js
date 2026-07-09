@@ -186,12 +186,6 @@ const CONFIG = {
             url: 'https://rentry.co/sites-problematicos-ecologica-verde'
         },
         {
-            id: 'digimon-guide',
-            emoji: '🎮',
-            icon: 'fa-gamepad',
-            url: 'https://rentry.co/DIGIMON-STORY-TIME-STRANGER-ECOLOGICA-VERDE'
-        },
-        {
             id: 'elden-guide',
             emoji: '🎮',
             icon: 'fa-gamepad',
