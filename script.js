@@ -131,13 +131,13 @@ const CONFIG = {
     },
     
     sourceUrls: {
-        'byxatab': 'https://e405dd0a.byxatab.pages.dev',
-        'dodi': 'https://0b83b191.dodi.pages.dev',
-        'ecologica': 'https://db94e56d.ecologica2verde.pages.dev',
-        'fitgirl': 'https://6427d543.ecofitgirl.pages.dev',
+        'byxatab': 'https://ff2b0409.byxatab.pages.dev',
+        'dodi': 'https://45c59ef6.dodi.pages.dev',
+        'ecologica': 'https://60bcc9aa.ecologica2verde.pages.dev',
+        'fitgirl': 'https://2b6e70cd.ecofitgirl.pages.dev',
         'gog': 'https://3b60b3cf.freepcgoggames.pages.dev',
-        'onlinefix': 'https://7d0c9c13.onlinefixme.pages.dev',
-        'insaneramzes': 'https://1beba2d6.insaneramzes.pages.dev'
+        'onlinefix': 'https://24e20a92.onlinefixme.pages.dev',
+        'insaneramzes': 'https://a0693eb1.insaneramzes.pages.dev'
     },
     
     sourceSafetyLinks: {
@@ -1307,11 +1307,14 @@ function setupGameSearch() {
                         return acc;
                     }, []);
                     
+                    const isOnlineFix = catalog.id === 'onlinefix';
+                    
                     return `
                     <div class="catalog-result" data-catalog-id="${catalog.id}">
                         <div class="catalog-result-header" data-catalog-id="${catalog.id}">
                             <i class="fas ${catalog.icon}"></i>
                             <strong>${catalog.name}</strong>
+                            ${isOnlineFix ? `<span class="game-version"><i class="fas fa-key"></i> Senha: <strong>online-fix.me</strong></span>` : ''}
                             <span class="match-count">${uniqueMatches.length} ${currentTranslations?.games_found || 'jogo(s)'}</span>
                             <i class="fas fa-chevron-down dropdown-icon" data-catalog-id="${catalog.id}"></i>
                         </div>
