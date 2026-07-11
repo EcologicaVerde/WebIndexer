@@ -1282,6 +1282,10 @@ function setupGameSearch() {
             return;
         }
         
+        const passwordLabel = currentTranslations?.password_label || 'Senha';
+        const versionLabel = currentTranslations?.version_label || 'Versão';
+        const buildLabel = currentTranslations?.build_label || 'Build';
+        
         resultsContainer.innerHTML = `
             <div class="search-results-header">
                 <i class="fas fa-check-circle"></i>
@@ -1314,7 +1318,7 @@ function setupGameSearch() {
                         <div class="catalog-result-header" data-catalog-id="${catalog.id}">
                             <i class="fas ${catalog.icon}"></i>
                             <strong>${catalog.name}</strong>
-                            ${isOnlineFix ? `<span class="game-version"><i class="fas fa-key"></i> Senha: <strong>online-fix.me</strong></span>` : ''}
+                            ${isOnlineFix ? `<span class="game-version">${passwordLabel}: <strong>online-fix.me</strong></span>` : ''}
                             <span class="match-count">${uniqueMatches.length} ${currentTranslations?.games_found || 'jogo(s)'}</span>
                             <i class="fas fa-chevron-down dropdown-icon" data-catalog-id="${catalog.id}"></i>
                         </div>
@@ -1325,9 +1329,9 @@ function setupGameSearch() {
                                 const hasVersion = game.version && game.version !== 'N/A' && game.version !== '';
                                 
                                 if (hasBuild) {
-                                    versionInfo = `<span class="game-version"><i class="fas fa-code-branch"></i> Build: ${escapeHtml(game.build)}</span>`;
+                                    versionInfo = `<span class="game-version"><i class="fas fa-code-branch"></i> ${buildLabel}: ${escapeHtml(game.build)}</span>`;
                                 } else if (hasVersion) {
-                                    versionInfo = `<span class="game-version"><i class="fas fa-tag"></i> Versão: ${escapeHtml(game.version)}</span>`;
+                                    versionInfo = `<span class="game-version"><i class="fas fa-tag"></i> ${versionLabel}: ${escapeHtml(game.version)}</span>`;
                                 }
                                 
                                 return `
