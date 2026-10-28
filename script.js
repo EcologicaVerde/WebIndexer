@@ -1049,14 +1049,11 @@ function setupGameSearch() {
         for (const [id, baseUrl] of Object.entries(CONFIG.sourceUrls)) {
             const csvFile = csvFiles[id];
             if (csvFile) {
-                let url = baseUrl;
-                if (!url.endsWith('/')) {
-                    url = url + '/';
-                }
+                let url = baseUrl.replace(/\/+$/, '');
                 catalogs.push({
                     id: id,
                     name: names[id],
-                    csvUrl: url + csvFile,
+                    csvUrl: url + '/' + csvFile,
                     icon: icons[id]
                 });
             }
