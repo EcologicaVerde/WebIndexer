@@ -139,7 +139,7 @@ const CONFIG = {
         'gog': 'https://3b60b3cf.freepcgoggames.pages.dev',
         'onlinefix': 'https://eba2b8fe.onlinefixme.pages.dev',
         'insaneramzes': 'https://603b90bf.insaneramzes.pages.dev',
-        'igruha': 'https://itorrents-igruha.pages.dev'
+        'igruha': 'https://igruha.pages.dev'
     },
     
     sourceSafetyLinks: {
