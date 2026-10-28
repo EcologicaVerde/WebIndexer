@@ -93,7 +93,7 @@
       "status": "trusted",
       "lastUpdated": "",
       "url": "https://freepcgoggames.pages.dev/",
-      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data da Postagem"],
+      "csvColumns": ["Nome", "Version", "Tamanho do Arquivo", "URL", "Data de Postagem"],
       "pros": [
         "Jogos sem DRM, arquivos limpos",
         "Conteúdo bônus preservado",
@@ -155,7 +155,7 @@
       "description": "Catálogo russo com grande variedade de jogos e atualizações constantes. Repacks com instalação rápida e foco em releases RU/EN.",
       "status": "verified",
       "lastUpdated": "",
-      "url": "https://b40b3064.igruha.pages.dev",
+      "url": "https://b40b3064.igruha.pages.dev/",
       "csvColumns": ["Nome", "Version", "Build", "Tamanho do Arquivo", "URL", "Data da Postagem"],
       "pros": [
         "Repacks com velocidade de instalação rápida.",
