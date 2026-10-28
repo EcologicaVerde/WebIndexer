@@ -113,10 +113,6 @@ const LANGUAGE_EN = {
             title: "GUIDE: ELDEN RING NIGHTREIGN",
             description: "Complete guide for installing and configuring the Seamless Co-op mod for ELDEN RING NIGHTREIGN."
         },
-        "persona-guide": {
-            title: "GUIDE: Persona 3 Reload",
-            description: "Complete guide for installing and configuring Persona 3 Reload from Steam."
-        },
         "smt-guide": {
             title: "GUIDE: Shin Megami Tensei V: Vengeance",
             description: "Complete guide for installing and configuring Shin Megami Tensei V: Vengeance from Steam."
@@ -202,7 +198,7 @@ const PROS_CONS_EN = {
     "Repacks com velocidade de instalação rápida.": "Repacks with fast installation speed.",
     "Maior catálogo com variações de jogos.": "Larger catalog with game variations.",
     "Catálogo com atualizações constantes.": "Catalog with constant updates.",
-    "Utiliza alguns releases dos sites do IGGames/Skidrow.": "Uses some releases from IGGames/Skidrow sites.",
+    "Utiliza alguns releases dos sites do IGGGames/Skidrow.": "Uses some releases from IGGGames/Skidrow sites.",
     "Releases antigos pode não conter Seeders.": "Older releases may have no seeders.",
     "Maioria dos Releases em RU/EN.": "Most releases are in RU/EN."
 };

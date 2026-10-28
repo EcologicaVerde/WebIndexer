@@ -139,7 +139,7 @@ const CONFIG = {
         'gog': 'https://3b60b3cf.freepcgoggames.pages.dev',
         'onlinefix': 'https://eba2b8fe.onlinefixme.pages.dev',
         'insaneramzes': 'https://603b90bf.insaneramzes.pages.dev',
-        'igruha': 'https://igruha.pages.dev'
+        'igruha': 'https://b40b3064.igruha.pages.dev'
     },
     
     sourceSafetyLinks: {
@@ -200,12 +200,6 @@ const CONFIG = {
             emoji: '🎮',
             icon: 'fa-gamepad',
             url: 'https://rentry.co/elden-ring-nightreign-ecologica-verde'
-        },
-        {
-            id: 'persona-guide',
-            emoji: '🎮',
-            icon: 'fa-gamepad',
-            url: 'https://rentry.co/PERSONA-3-RELOAD-ECOLOGICA-VERDE'
         },
         {
             id: 'smt-guide',
@@ -1067,6 +1061,8 @@ function setupGameSearch() {
                 });
             }
         }
+        
+        catalogs.sort((a, b) => a.name.localeCompare(b.name));
         
         return catalogs;
     }

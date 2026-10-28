@@ -113,10 +113,6 @@ const LANGUAGE_PT = {
             title: "GUIA: ELDEN RING NIGHTREIGN",
             description: "Guia completo para instalação e configuração do mod (Seamless Co-op) do ELDEN RING NIGHTREIGN."
         },
-        "persona-guide": {
-            title: "GUIA: Persona 3 Reload",
-            description: "Guia completo para instalação e configuração do Persona 3 Reload da Steam."
-        },
         "smt-guide": {
             title: "GUIA: Shin Megami Tensei V: Vengeance",
             description: "Guia completo para instalação e configuração do Shin Megami Tensei V: Vengeance da Steam."
